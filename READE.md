@@ -1,2 +1,0 @@
-# Schauenburger-Hausarztpraxis
-# Schauenburger-Hausarztpraxis
