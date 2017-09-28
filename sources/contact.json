@@ -1,0 +1,14 @@
+{
+    "headline": "Kontakt",
+    "entries":
+    [
+        {
+            "type": "Telefon",
+            "data": "05606 – 82 66"
+        },
+        {
+            "type": "Fax",
+            "data": "05606 – 53 42 51"
+        }
+    ]
+}

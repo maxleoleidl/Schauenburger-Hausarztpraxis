@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" media="only screen and (min-width:821px)" href="css/screen_layout_large.css" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="scripts/handlebars-v4.0.10.js"></script>
         <script src="scripts/menu.js"></script>
 
         <title>
@@ -51,30 +52,23 @@
 
             <div id="content">
                 <h1>Schauenburger Hausarztpraxis</h1>
+
                 <span class="mainparagraph">
-                    <h3 class="first">Öffnungszeiten</h3>
-                    <p class="open">
-                        Mo, Di, Do
-                        <span class="open">
-                            8:00 – 11:00 Uhr
-                        </span>
-                        <span class="open">
-                                16:30 – 18:30 Uhr
-                        </span>
+                    <div id="opening_times"></div>
+                    <script id="opening-template" type="text/x-handlebars-template">
+                        <h3>{{headline}}:</h3>
+                        <ul>
+                            {{#each entries}}
+                            <li><span class="days">{{days}}</span> <span class="times">{{times}} Uhr</span></li>
+                            {{/each}}
+                        </ul>
                         <span class="end"></span>
-                    </p>
-                    <p class="open">
-                        Mi und Fr
-                        <span class="open">
-                            8:00 – 11:00 Uhr
-                        </span>
-                        <span class="end"></span>
-                    </p>
+                    </script>
+
                     <p>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                     </p>
                 </span>
-                <img class="mainimage" src="images/praxis_front.png" alt="Vorderseite der Praxis"/>
                 <span class="end"></span>
             </div>
 
@@ -84,7 +78,9 @@
             </div>
         </div>
 
-        <!------------ script for opening and closing of the mobile menu ------------>
+        <!-- script for opening and closing the mobile menu -->
         <script src="scripts/menu.js"></script>
+        <!-- Handlebars -->
+        <script type="text/javascript" src="scripts/home.js"></script>
     </body>
 </html>

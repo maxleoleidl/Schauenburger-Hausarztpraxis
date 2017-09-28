@@ -23,6 +23,7 @@ body {
 #header {
     height: 165px;
     background-image: url(../images/header.png);
+    background-color: #fff;
 }
 
 #header .logo {

@@ -96,18 +96,25 @@ a {
     padding: 15px;
 }
 
-#content p.open {
-    width: 230px;
-    clear: both;
+#content .days {
+    clear: right;
+    float: left;
 }
 
-#content span.open {
+#content .times {
     float: right;
 }
 
 #content .end {
     display: block;
     clear: both;
+}
+
+#opening_times ul {
+    max-width: 220px;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
 }
 
 /*---------- 1.5 footer ----------*/
