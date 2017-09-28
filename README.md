@@ -1,3 +1,3 @@
 ## Schauenburger-Hausarztpraxis
 
-[Preview](https://bbditer.github.io/Schauenburger-Hausarztpraxis/)
+Start to configurate a node.js server.
