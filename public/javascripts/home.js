@@ -1,7 +1,7 @@
 var open = document.getElementById("opening-template").innerHTML;
 // var contact = document.getElementById("contact-template").innerHTML;
 
-var template_open = Handlebars.compile(open);
+var template_open = hbs.compile(open);
 // var template_contact = Handlebars.compile(contact);
 
 $.getJSON('../sources/opening_times.json', function(data_open) {

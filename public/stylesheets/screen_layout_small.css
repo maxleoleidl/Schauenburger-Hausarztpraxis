@@ -24,6 +24,7 @@ body {
     height: 90px;
     background-image: url(../images/header.png);
     background-size: auto 90px;
+    background-color: #fff;
 }
 
 #header .logo {
