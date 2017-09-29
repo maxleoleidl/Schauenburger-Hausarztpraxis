@@ -1,0 +1,27 @@
+{
+    "entries":
+    [
+        {
+            "title": "Praxis",
+            "href": "#praxis",
+            "class": "first"
+        },
+        {
+            "title": "Team",
+            "href": "#team"
+        },
+        {
+            "title": "Leistungen",
+            "href": "#leistungen"
+        },
+        {
+            "title": "Aus- und Weiterbildung",
+            "href": "#aus-und-weiterbildung"
+        },
+        {
+            "title": "Kontakt",
+            "href": "#kontakt",
+            "class": "last"
+        }
+    ]
+}

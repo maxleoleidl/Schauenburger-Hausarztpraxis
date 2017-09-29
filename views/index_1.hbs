@@ -1,23 +1,33 @@
-<div id="menu">
-    <div class="mobile handle">
-        Menu
-        <div class="buttom">
-            <span class="color"></span>
-            <span></span>
-            <span class="color"></span>
-            <span></span>
-            <span class="color"></span>
-        </div>
-    </div>
+<div id="wrapper">
+  <div id="header">
+      <a href="#">
+          <div class="logo"></div>
+      </a>                
+  </div>
 
-    <ul>
-        {{#each menu.entries}}
-        <a {{#if class}}class="{{ class }}"{{/if}} href="{{ href }}"><li><p>{{ title }}</p></li></a>
-        {{/each}}
-    </ul>
-</div>
 
-<div id="content">
+  <div id="menu">
+      <div class="mobile handle">
+          Menu
+          <div class="buttom">
+              <span class="color"></span>
+              <span></span>
+              <span class="color"></span>
+              <span></span>
+              <span class="color"></span>
+          </div>
+      </div>
+
+      <ul>
+          <a class="menuactive first" href="#Praxis"><li><p>Praxis</p></li></a>
+          <a href="#Team"><li><p>Team</p></li></a>
+          <a href="#Leistungen"><li><p>Leistungen</p></li></a>
+          <a href="#aus-und-weiterbildung"><li><p>Aus- und Weiterbildung</p></li></a>
+          <a class="last" href="#Kontakt"><li><p>Kontakt</p></li></a>
+      </ul>
+  </div>
+
+  <div id="content">
     <h1>{{ title }}</h1>
 
     <span class="mainparagraph">
@@ -36,4 +46,10 @@
         </p>
     </span>
     <span class="end"></span>
+  </div>
+
+
+  <div id="footer">
+          Copyright © 2017 Schauenburger Hausarztpraxis ■ <a href="#Kontakt">Kontakt</a> ■ <a href="#Impressum">Impressum</a>
+  </div>
 </div>
