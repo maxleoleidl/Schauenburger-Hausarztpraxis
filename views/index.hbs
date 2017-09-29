@@ -28,19 +28,18 @@
   </div>
 
   <div id="content">
-    <h1>Schauenburger Hausarztpraxis</h1>
+    <h1>{{ title }}</h1>
 
     <span class="mainparagraph">
-        <div id="opening_times"></div>
-        <script id="opening-template" type="text/x-handlebars-template">
-            <h3>{{headline}}:</h3>
+        <div id="opening_times">
+            <h3>{{ opening_times.headline }}</h3>
             <ul>
-                {{#each entries}}
-                <li><span class="days">{{days}}</span> <span class="times">{{times}} Uhr</span></li>
+                {{#each opening_times.entries}}
+                    <li><span class="days">{{days}}</span> <span class="times">{{times}} Uhr</span></li>
                 {{/each}}
             </ul>
             <span class="end"></span>
-        </script>
+        </div>
 
         <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
