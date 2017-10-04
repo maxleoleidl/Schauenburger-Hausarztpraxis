@@ -1,3 +1,3 @@
 ## Schauenburger-Hausarztpraxis
 
-[Preview](https://bbditer.github.io/Schauenburger-Hausarztpraxis/)
+The newest changes can be fined on the node branch.
