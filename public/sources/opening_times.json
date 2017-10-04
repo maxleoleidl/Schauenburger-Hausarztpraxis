@@ -1,0 +1,55 @@
+{
+    "headline": "Öffnungszeiten",
+    "entries_opening":
+    [
+        {
+            "day": "Montag",
+            "times1": "7.30 – 13 Uhr",
+            "times2": "15 – 19 Uhr"
+        },
+        {
+            "day": "Dienstag",
+            "times1": "7.30 – 13 Uhr",
+            "times2": "15 – 19 Uhr"
+        },
+        {
+            "day": "Mittwoch",
+            "times1": "7.30 – 14 Uhr"
+        },
+        {
+            "day": "Donnerstag",
+            "times1": "7.30 – 13 Uhr",
+            "times2": "15 – 19 Uhr"
+        },
+        {
+            "day": "Freitag",
+            "times1": "7.30 – 16 Uhr"
+        }
+    ],
+    "entries_surgery":
+    [
+        {
+            "day": "Montag",
+            "times1": "8 – 12 Uhr",
+            "times2": "16 – 18 Uhr"
+        },
+        {
+            "day": "Dienstag",
+            "times1": "8 – 12 Uhr",
+            "times2": "17 – 19 Uhr"
+        },
+        {
+            "day": "Mittwoch",
+            "times1": "8 – 12 Uhr"
+        },
+        {
+            "day": "Donnerstag",
+            "times1": "8 – 12 Uhr",
+            "times2": "16 – 18 Uhr"
+        },
+        {
+            "day": "Freitag",
+            "times1": "8 – 12 Uhr"
+        }
+    ]
+}

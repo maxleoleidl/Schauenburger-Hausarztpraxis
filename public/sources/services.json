@@ -1,0 +1,111 @@
+{
+    "entries":
+    [
+        {
+            "headline": "Medizinische Grundversorgung",
+            "list_items": [
+                {
+                    "item": "Internistische Diagnostik"
+                },
+                {
+                    "item": "Laboruntersuchungen"
+                },
+                {
+                    "item": "Ruhe-EKG"
+                },
+                {
+                    "item": "Lungenfunktionstest"
+                },
+                {
+                    "item": "Blutsauerstoffmessung"
+                },
+                {
+                    "item": "Ultraschalluntersuchung der inneren Organe (Bauch, Nieren, Schilddrüse)"
+                },
+                {
+                    "item": "Kleine Chirurgie"
+                },
+                {
+                    "item": "Demenzdiagnostik"
+                },
+                {
+                    "item": "Sporttauglichkeitsuntersuchung"
+                },
+                {
+                    "item": "Berufseignungstest"
+                },
+                {
+                    "item": "Reiseimpfberatung und Reiseimpfungen"
+                },
+                {
+                    "item": "Ohrspülung"
+                },
+                {
+                    "item": "Infusionen"
+                },
+                {
+                    "item": "Psychosomatische Therapie"
+                },
+                {
+                    "item": "Sexualberatung"
+                },
+                {
+                    "item": "Stressmanagement"
+                },
+                {
+                    "item": "Betreuung in Senioren- u. Pflegeheimen"
+                },
+                {
+                    "item": "Zusammenarbeit mit ambulanten Pflegediensten und Palliativ-Care-Teams"
+                },
+                {
+                    "item": "Hausbesuche"
+                }
+            ]
+        },
+        {
+            "headline": "Vorsorge",
+            "list_items": [
+                {
+                    "item": "Gesundheitsuntersuchung (ab 35 Jahren alle 2 Jahre)"
+                },
+                {
+                    "item": "Krebsvorsorgeuntersuchung (ab 45 Jahren jährlich für Männer)"
+                },
+                {
+                    "item": "Hautkrebsscreening (ab 35 Jahren alle 2 Jahre)"
+                },
+                {
+                    "item": "Jugendschutzuntersuchung"
+                },
+                {
+                    "item": "Sportmedizinische Untersuchungen (siehe IGeL)"
+                },
+                {
+                    "item": "Impfberatung und Impfungen"
+                },
+                {
+                    "item": "Kinder- und Jugendvorsorgeuntersuchungen"
+                }
+            ]
+        },
+        {
+            "headline": "DMP (Disease-Management-Programme)",
+            "subheadline": "Begleitprogramme für Patienten mit chronischen Erkrankungen",
+            "list_items": [
+                {
+                    "item": "Diabetes mellitus"
+                },
+                {
+                    "item": "COPD (chronische Bronchitis)"
+                },
+                {
+                    "item": "Koronare Herzkrankheit"
+                },
+                {
+                    "item": "Asthma bronchiale"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="javascripts/menu.js"></script>
+    {{#if map}}
+    <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <script type="text/javascript" src="javascripts/map_tom.js"></script>
+    <script type="text/javascript" src="javascripts/map.js"></script>
+    {{/if}}
+    
+    {{#if map}}
+    <link rel="stylesheet" type="text/css" href="stylesheets/map.css"></link>
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="stylesheets/ie_map.css"></link>
+    <![endif]-->
+    {{/if}}
+    <link rel="stylesheet" type="text/css" href="stylesheets/screen_styles.css" />
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:500px)" href="stylesheets/screen_layout_small.css" />
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width:501px) and (max-width:820px)" href="stylesheets/screen_layout_medium.css" />
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width:821px)" href="stylesheets/screen_layout_large.css" />
+
+    <title>{{title}}</title>
+  </head>
+
+  {{#if map}}
+  <body onload=drawmap();>
+  {{else}}
+  <body>
+  {{/if}}
+    <div id="wrapper">
+      <div id="header">
+          <a href="#">
+              <div class="logo"></div>
+          </a>                
+      </div>
+
+      {{{body}}}
+
+      <div id="footer">
+        Copyright © 2017 Schauenburger Hausarztpraxis ■ <a href="http://0.0.0.0:8000/kontakt">Kontakt</a> ■ <a href="impressum">Impressum</a>
+      </div>
+    </div>
+
+    <!-- script for opening and closing the mobile menu -->
+    <script src="javascripts/menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "entries": [
+        {
+            "name": "Anja Kessler",
+            "job_description": "Medizinische Fachangestellte"
+        },
+        {
+            "name": "Christine Krug",
+            "job_description": "Gesundheits- und Krankenpflegerin"
+        },
+        {
+            "name": "Heike Lichtensteiger",
+            "job_description": "Medizinische Fachangestellte"
+        },
+        {
+            "name": "Margret Happe",
+            "job_description": "Medizinische Fachangestellte"
+        },
+        {
+            "name": "Barbara Dziurozs",
+            "job_description": "Objektbetreuung, Raumpflege"
+        },
+        {
+            "name": "Edith Kresin",
+            "job_description": "Aktensicherung"
+        },
+        {
+            "name": "Birgit Mähl",
+            "job_description": "Medizinische Fachangestellte"
+        }
+    ]
+}

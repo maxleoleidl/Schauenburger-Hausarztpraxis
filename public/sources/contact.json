@@ -1,0 +1,24 @@
+{
+    "headline": "Kontakt",
+    "entries":
+    [
+        {
+            "data": "Hausarztpraxis Dr. med. Andrea Maschita, Elisabeth Bormuth & Bernd Stöver"
+        },
+        {
+            "data": "Großenritter Str. 4-6"
+        },
+        {
+            "data": "34270 Schauenburg-Elgershausen"
+        },
+        {
+            "type": "Telefon",
+            "data": "05601 93380",
+            "link": "0560193380"
+        },
+        {
+            "type": "Fax",
+            "data": "05601 933817"
+        }
+    ]
+}

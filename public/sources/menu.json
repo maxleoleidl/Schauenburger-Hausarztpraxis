@@ -1,0 +1,33 @@
+{
+    "entries":
+    [
+        {
+            "title": "Praxis",
+            "href": "home",
+            "class": "first"
+        },
+        {
+            "title": "Team",
+            "href": "team",
+            "sub_items": [
+                {
+                    "title": "Praxisteam",
+                    "href": "praxisteam"
+                },
+                {
+                    "title": "Ärzteteam",
+                    "href": "aerzteteam"
+                }
+            ]
+        },
+        {
+            "title": "Leistungen",
+            "href": "leistungen"
+        },
+        {
+            "title": "Kontakt",
+            "href": "kontakt",
+            "class": "last"
+        }
+    ]
+}
