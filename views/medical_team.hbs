@@ -1,0 +1,58 @@
+<div id="menu" class="{{ menu_active }}">
+    <div class="mobile handle">
+        Menu
+        <div class="buttom">
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+        </div>
+    </div>
+
+    <ul>
+        {{#each menu.entries}}
+            <li {{#if class}}class="{{ class }}"{{/if}}>
+                <a class="{{ path }}" href="{{ href }}">
+                    <p>{{ title }}</p>
+                </a>
+
+                {{#if sub_items}}
+                    <ul class="submenu">
+                        {{#each sub_items}}
+                            <li>
+                                <a class="{{ path }}" href="{{ href }}">
+                                    <p>{{ title }}</p>
+                                </a>
+                            </li>
+                        {{/each}}
+                        <span class="end"></span>
+                    </ul>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div id="content">
+    <h1>{{ title }}</h1>
+
+    <div class="mainparagraph">
+        {{#each team.entries}}
+            <h2>{{ title }} {{ name }} geb. {{ birthyear }}</h2>
+            <ul class="medical_team">
+                {{#each curriculum_vitae}}
+                    <li>{{ entry }}</li>
+                    {{#if subentries}}
+                        <ul class="medical_team">
+                            {{#each subentries}}
+                                <li>{{ entry }}</li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        {{/each}}
+    </div>
+    <span class="end"></span>
+</div>

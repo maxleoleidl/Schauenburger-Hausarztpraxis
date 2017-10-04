@@ -1,0 +1,54 @@
+{
+    "entries": [
+        {
+            "title": "Dr. med.",
+            "name": "Andrea Maschita",
+            "birthyear": "1968",
+            "curriculum_vitae": [
+                {
+                    "entry": "Medizinstudium Philipps-Universität, Marburg, Famulatur in Córdoba, Argentinien"
+                },
+                {
+                    "entry": "Praktisches Jahr: Chirurgie, Innere Medizin, HNO, Rotes Kreuz Krh. Kassel und Klinikum Kassel"
+                },
+                {
+                    "entry": "Assistenzarztzeiten:",
+                    "subentries": [
+                        {
+                            "entry": "Allgemein- und Unfallchirurgie, Prof. Dr. Hesterberg, Rotes Kreuz Krh. Kassel"
+                        },
+                        {
+                            "entry": "Orthopädie, Praxis Dr. Röde, Wabern"
+                        },
+                        {
+                            "entry": "Innere Medizin, Dr. Griesche, Kreisklinik Wolfhagen"
+                        },
+                        {
+                            "entry": "Praxis für Allgemeinmedizin, Praxis Dr. Herz und Zeidler, Kassel"
+                        }
+                    ]
+                },
+                {
+                    "entry": "Seit 2004 Anerkennung als Fachärztin für Allgemeinmedizin"
+                },
+                {
+                    "entry": "Seit 2006 Fachärztin in dieser Praxis"
+                },
+                {
+                    "entry": "Zusatzbezeichnungen",
+                    "subentries": [
+                        {
+                            "entry": "Palliativmedizin"
+                        },
+                        {
+                            "entry": "Rettungsdienst"
+                        },
+                        {
+                            "entry": "Fachkunde im Strahlenschutz"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

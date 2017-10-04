@@ -8,7 +8,12 @@ var hbs = require('express-handlebars');
 var $ = require('jquery');
 
 var index = require('./routes/index');
-// var users = require('./routes/users');
+var praxisteam = require('./routes/practice_team');
+var aerzteteam = require('./routes/medical_team');
+var leistungen = require('./routes/leistungen');
+var contact = require('./routes/contact');
+var impressum = require('./routes/impressum');
+var news = require('./routes/news');
 
 var app = express();
 
@@ -26,7 +31,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-// app.use('/users', users);
+app.use('/home', index);
+app.use('/team', praxisteam);
+app.use('/praxisteam', praxisteam);
+app.use('/team/praxisteam', praxisteam);
+app.use('/aerzteteam', aerzteteam);
+app.use('/team/aerzteteam', aerzteteam);
+app.use('/leistungen', leistungen);
+app.use('/kontakt', contact);
+app.use('/impressum', impressum);
+app.use('/news', news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,24 +3,30 @@
     [
         {
             "title": "Praxis",
-            "href": "#praxis",
+            "href": "home",
             "class": "first"
         },
         {
             "title": "Team",
-            "href": "#team"
+            "href": "team",
+            "sub_items": [
+                {
+                    "title": "Praxisteam",
+                    "href": "praxisteam"
+                },
+                {
+                    "title": "Ärzteteam",
+                    "href": "aerzteteam"
+                }
+            ]
         },
         {
             "title": "Leistungen",
-            "href": "#leistungen"
-        },
-        {
-            "title": "Aus- und Weiterbildung",
-            "href": "#aus-und-weiterbildung"
+            "href": "leistungen"
         },
         {
             "title": "Kontakt",
-            "href": "#kontakt",
+            "href": "kontakt",
             "class": "last"
         }
     ]

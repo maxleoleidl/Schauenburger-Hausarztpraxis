@@ -1,0 +1,83 @@
+<div id="menu" class="{{ menu_active }}">
+    <div class="mobile handle">
+        Menu
+        <div class="buttom">
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+        </div>
+    </div>
+
+    <ul>
+        {{#each menu.entries}}
+            <li {{#if class}}class="{{ class }}"{{/if}}>
+                <a class="{{ path }}" href="{{ href }}">
+                    <p>{{ title }}</p>
+                </a>
+
+                {{#if sub_items}}
+                    <ul class="submenu">
+                        {{#each sub_items}}
+                            <li>
+                                <a class="{{ path }}" href="{{ href }}">
+                                    <p>{{ title }}</p>
+                                </a>
+                            </li>
+                        {{/each}}
+                        <span class="end"></span>
+                    </ul>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div id="content">
+    <h1>{{ title }}</h1>
+
+    <div class="mainparagraph">
+        <h2>Wichtiges zur Organisation</h2>
+        <p>
+            In unserer Praxis gilt grundsätzlich die freie Arztwahl. Sollte dies aus organisatorischen Gründen bei einem Termin einmal nicht möglich sein, können Sie sich selbstverständlich und beruhigt von den anderen Kollegen behandeln lassen, da wir sehr eng zusammen arbeiten.
+        </p>
+        <p>
+            Da wir uns um akute Erkrankungen und Notfälle natürlich sofort kümmern müssen, kommt es trotz Termin manchmal zu Zeitverzögerungen. Bitte haben Sie dafür Verständnis!
+        </p>
+        <p>
+            Um die Wartezeiten zu verkürzen, bitten wir Sie, vor einem Besuch (auch für Blutentnahmen) einen Termin zu vereinbaren.
+        </p>
+        <p>
+            Blutentnahmen nehmen wir nach vorheriger ärztlicher Anordnung und Terminabsprache täglich morgens zwischen 8 und 10 Uhr vor. Sie sollten dazu nüchtern erscheinen, Ihre üblichen Medikamente aber vorher eingenommen haben. Falls Sie Diabetiker sind oder Unklarheiten bestehen, fragen Sie bitte zuvor nach, wie Sie Ihre Medikamente nehmen sollen.
+
+        </p>
+        <p>
+            Geplante Ultraschalluntersuchungen finden ebenfalls morgens nüchtern, meist mit gefüllter Harnblase nach Terminabsprache statt.
+        </p>
+
+        {{#each services.entries}}
+            <h2>{{ headline }}</h2>
+            {{#if subheadline}}
+                <h3>{{ subheadline }}</h3>
+            {{/if}}
+            <ul style="list-style-type: square; padding-left: 17px;">
+                {{#each list_items}}
+                    <li>{{ item }}</li>
+                {{/each}}
+            </ul>
+        {{/each}}
+
+        <h2>Individuelle Wunsch-Gesundheitsleistungen (IGeL)</h2>
+        <p>
+            Wir möchten Sie als Ärzte neutral beraten. Daher bieten wir Ihnen von uns aus grundsätzlich keine kostenpflichtigen Gesundheitsleistungen an. Wir grenzen uns ausdrücklich von unseriösen IGeL-Angeboten ab, bei denen sich Patienten unter Druck gesetzt fühlen könnten sie kostenpflichtig in Anspruch nehmen zu müssen. (Einen guten Überblick verschaffen folgende Links: <a href="http://www.igel-monitor.de/">www.igel-monitor.de</a> und <a href="http://www.bundesaerztekammer.de/fileadmin/user_upload/downloads/Igelcheck2Aufl201401a.pdf">Bundesärztekammer</a>)
+        </p>
+        <p>
+            Einige wenige Leistungen (z.B. Atteste, Tauglichkeitsuntersuchungen) sind jedoch unumgänglich und dennoch nicht mit der Krankenkasse abzurechnen. Eine Preisliste ist an unserer Anmeldung einzusehen bzw. Sie können die Preise bei unseren Angestellten erfahren.
+        </p>
+        <p>
+            Auch manche Laborleistungen auf „Wunsch“ dürfen wir nicht mit der Krankenkasse abrechnen. Hierfür bekommen Sie eine Rechnung von dem durchführenden Labor.
+        </p>
+    </div>
+    <span class="end"></span>
+</div>
