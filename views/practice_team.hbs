@@ -1,0 +1,59 @@
+<div id="menu" class="{{ menu_active }}">
+    <div class="mobile handle">
+        Menu
+        <div class="buttom">
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+            <span></span>
+            <span class="color"></span>
+        </div>
+    </div>
+
+    <ul>
+        {{#each menu.entries}}
+            <li {{#if class}}class="{{ class }}"{{/if}}>
+                <a class="{{ path }}" href="{{ href }}">
+                    <p>{{ title }}</p>
+                </a>
+
+                {{#if sub_items}}
+                    <ul class="submenu">
+                        {{#each sub_items}}
+                            <li>
+                                <a class="{{ path }}" href="{{ href }}">
+                                    <p>{{ title }}</p>
+                                </a>
+                            </li>
+                        {{/each}}
+                        <span class="end"></span>
+                    </ul>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div id="content">
+    <h1>{{ title }}</h1>
+
+    <div class="mainparagraph">
+        <p class="first">
+            Mit langjähriger Erfahrung über das gesamte Spektrum allgemeinmedizinischer Tätigkeiten werden Sie vom Betreten bis zum Verlassen der Praxis individuell und kompetent begleitet. Unser freundliches und qualifiziertes Praxisteam freut sich auf Sie!
+        </p>
+    </div>
+
+    <span class="end"></span>
+    {{#each team.entries}}
+        <div class="team">
+            {{#if image}}
+                <img src="http://0.0.0.0:8000/images/practice_team/{{ image }}" alt="Portrait von {{ name }}"/>
+            {{else}}
+                <img src="http://0.0.0.0:8000/images/practice_team/silhouette.jpg" alt="Zeigt eine Silhouette"/>
+            {{/if}}
+            <h3>{{ name }}</h3>
+            <p>{{ job_description }}</p>
+        </div>
+    {{/each}}
+    <span class="end"></span>
+</div>

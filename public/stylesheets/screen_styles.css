@@ -1,0 +1,178 @@
+/*---------- structur ----------*/
+/*----------
+1. mobile version
+    1.0 body
+    1.1 wrapper
+    1.2 header
+    1.3 menu
+    1.4 content
+        1.4.1 home
+        1.4.2 team
+    1.5 footer
+----------*/
+
+@charset "UTF-8";
+
+/*---------- 1.0 body ----------*/
+body {
+    background-color: #DBDBDB;
+    line-height: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    color: #4b6eb7;
+    font-weight: normal;
+}
+
+h1.first, h2.first, h3.first {
+    margin-top: 0px;
+}
+
+h1 {
+    line-height: 1em;
+}
+
+h3.first {
+    margin-top: 0px;
+}
+
+p.first {
+    margin-top: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #4b6eb7;
+}
+
+/*---------- 1.1 wrapper ----------*/
+#wrapper {
+    max-width: 1024px;
+    margin: 0px auto 0px auto;
+    position: relative;
+}
+
+/*---------- 1.2 header ----------*/
+#header {
+    margin: 15px 0px 5px 0px;
+}
+
+#header a {
+    height: 100%;
+    display: block;
+}
+
+/*---------- 1.3 menu ----------*/
+#menu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#menu a {
+    display: block;
+    background-color: #A0A0A0;
+    text-decoration: none;
+    color: #FFF;
+}
+
+#menu a.menuactive {
+    font-weight: bold;
+    background-color: #4b6eb7;
+}
+
+#menu a:hover, #menu a:active {
+    font-weight: bold;
+    background-color: #4b6eb7;
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu a {
+    padding: 5px;
+}
+
+#menu p {
+    margin: 0px;
+}
+
+/*---------- 1.4 content ----------*/
+#content {
+    background-color: white;
+    margin: 5px 0px 5px 0px;
+    clear: both;
+    padding: 30px;
+}
+
+#content .end {
+    display: block;
+    clear: both;
+}
+
+#content ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*---------- 1.4.1 home ----------*/
+
+#content .days {
+    clear: right;
+    float: left;
+}
+
+#content .times {
+    float: right;
+}
+
+#opening_times table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#opening_times td, #opening_times th {
+    border: 1px solid #DBDBDB;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#opening_times th {
+    color: #4b6eb7;
+    background-color: #DBDBDB;
+}
+
+#content .news::before {
+    width: 100%;
+    height: 2px;
+    display: block;
+    content: close-quote;
+    background-color: #4b6eb7;
+}
+
+/*---------- 1.4.2 team ----------*/
+
+#content ul.medical_team {
+    list-style-type: square;
+    margin-left: 15px;
+}
+
+/*---------- 1.5 footer ----------*/
+#footer {
+    background-color: #FFF;
+    color: #4b6eb7;
+    padding: 5px 5px 5px 30px;
+    clear: both;
+}
+
+#footer a {
+    color: #4b6eb7;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
