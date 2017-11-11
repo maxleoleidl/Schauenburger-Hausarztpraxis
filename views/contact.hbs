@@ -54,55 +54,48 @@
             <p>
                 Beachten Sie, dass das Formular <strong>ausschließlich</strong> für den vorgesehenen Zweck als Bestellformular für Dauermedikation und regelmäßig ausgestellte Überweisungen einzusetzen ist! Andere Anliegen werden von uns nicht über dieses Medium bearbeitet.
             </p>
-            <!--
-            <table>
-                <tr>
-                    <td>Anrede</td>
-                    <td>
-                        <input name="anrede" type="radio" id="female" value="Frau" required="">
+            
+            {{# if success}}
+                <section class="success">
+                    <h2>Successful Validation!</h2>
+                </section>
+            {{else}}
+                {{# if errors}}
+                    <section class="errors">
+                        <ul>
+                            {{# each errors}}
+                                <li>{{this.msg}}</li>
+                            {{/each}}
+                        </ul>
+                    </section>
+                {{/if}}
+                <form action="kontakt/submit" method="post">
+                    <div class="input">
+                        <label for="gender">Anrede</label>
+                        <input type="radio" id="female" value="Frau" name="gender" required="">
                         <label for="female">Frau</label>
-                        <input name="anrede" type="radio" id="male" value="Herr" required="">
-                        <label for="male">Herr</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>
-                        <input name="name" type="text" id="name" size="30" placeholder="Vorname Nachnahme" required="">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Geburtsdatum</td>
-                    <td>
-                        <input name="geburtsdatum" id="geburtsdatum" type="date" placeholder="01.01.1999" required="">
-                    </td>
-                </tr>
-                <tr>
-                    <td>E-Mail</td>
-                    <td>
-                        <input name="email" id="email" type="email" placeholder="email@beispiel.de" required="">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Bestellung</td>
-                    <td>
-                        <textarea name="bestellung" id="bestellung" cols="45" rows="5" wrap="virtual" placeholder="Medikament/Überweisung" required=""></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" value="Versenden">
-                    </td>
-                </tr>
-            </table>-->
-            <form action="kontakt/submit" method="post">
-                <div class="input">
-                    <label for="email">E-Mail</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <button type="submit">Send E-Mail</button>
-            </form>
+                        <input type="radio" id="male" value="Herr" name="gender" required="">
+                        <label for="Male">Herr</label>
+                    </div>
+                    <div class="input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required="">
+                    </div>
+                    <div class="input">
+                        <label for="birth">Geburtsdatum</label>
+                        <input type="date" id="birth" name="birth" placeholder="01.01.2000" required="">
+                    </div>
+                    <div class="input">
+                        <label for="email">E-Mail</label>
+                        <input type="text" id="email" name="email" required="">
+                    </div>
+                    <div class="input">
+                        <label for="order" style="float: left;">Bestellung</label>
+                        <textarea name="order" id="order" cols="45" rows="5" wrap="virtual" placeholder="Medikament/Überweisung" required=""></textarea>
+                    </div>
+                    <button type="submit">Send E-Mail</button>
+                </form>
+            {{/if}}
         </div>
     </div>
     <span class="end"></span>
