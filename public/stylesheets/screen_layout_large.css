@@ -135,14 +135,19 @@
 
 #content .team img {
     width: 100%;
+    box-sizing: inherit;
 }
 
 #content .team h3 {
+    width: 100%;
     margin: 5px 0px 5px 0px;
+    box-sizing: inherit;
 }
 
 #content .team p {
+    width: 100%;
     margin: 0px;
+    box-sizing: inherit;
 }
 
 /*---------- 1.4.4 services ----------*/

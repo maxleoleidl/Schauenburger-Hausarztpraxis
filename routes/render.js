@@ -15,41 +15,40 @@ var contact_data = require('../public/sources/contact');
 /* Devide the service data */
 for (x in services_data.entries) {
     if (services_data.entries[x].link == 'grundversorgung') {
-      var grundversorgung = services_data.entries[x];
+    var grundversorgung = services_data.entries[x];
     } else if (services_data.entries[x].link == 'vorsorge') {
-      var vorsorge = services_data.entries[x];
+    var vorsorge = services_data.entries[x];
     } else if (services_data.entries[x].link == 'chronische_erkrankungen') {
-      var chronische_erkrankungen = services_data.entries[x];
+    var chronische_erkrankungen = services_data.entries[x];
     } else if (services_data.entries[x].link == 'organisatorisches') {
-      var organisatorisches = services_data.entries[x];
+    var organisatorisches = services_data.entries[x];
     } else if (services_data.entries[x].link == 'igel') {
-      var igel = services_data.entries[x];
+    var igel = services_data.entries[x];
     };
 };
 
 /* mark the current site */
 var x = 0;
 while (x < menu_data.entries.length) {
-  menu_data.entries[x].path = menu_data.entries[x].href;
-  if (menu_data.entries[x].path != 'home') {
-    menu_data.entries[x].href = 'http://0.0.0.0:8000/' + menu_data.entries[x].href;
-  } else {
-    menu_data.entries[x].href = 'http://0.0.0.0:8000/'
-  };
-  
-
-  if (menu_data.entries[x].sub_items != undefined) {
-    
-    var y = 0;
-    while (y < menu_data.entries[x].sub_items.length) {
-      menu_data.entries[x].sub_items[y].path = menu_data.entries[x].sub_items[y].href;
-      menu_data.entries[x].sub_items[y].href = menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
-
-      y++;
+    menu_data.entries[x].path = menu_data.entries[x].href;
+    if (menu_data.entries[x].path != 'home') {
+        menu_data.entries[x].href = 'http://0.0.0.0:8000/' + menu_data.entries[x].href;
+    } else {
+        menu_data.entries[x].href = 'http://0.0.0.0:8000/'
     };
-  }
 
-  x++;
+    if (menu_data.entries[x].sub_items != undefined) {
+        
+        var y = 0;
+        while (y < menu_data.entries[x].sub_items.length) {
+            menu_data.entries[x].sub_items[y].path = menu_data.entries[x].sub_items[y].href;
+            menu_data.entries[x].sub_items[y].href = menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
+
+            y++;
+        };
+    };
+
+    x++;
 };
 
 var sitelist = {
