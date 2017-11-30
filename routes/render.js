@@ -105,11 +105,6 @@ var sitelist = {
     ]
 };
 
-/* Render the different content */
-for (x in sitelist) {
-    renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
-};
-
 function renderContent(file, output, jsondata) {
     fs.readFile(file, 'utf8', function(err, data){
         if (!err) {
@@ -144,7 +139,12 @@ function renderToString(source, data) {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render();
+    /* Render the different content */
+    for (x in sitelist) {
+        renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
+    };
+
+    res.render('render', {title: "Die statischen Webseiten wurden erfolgreich erstellt."});
 });
 
 module.exports = router;
