@@ -32,9 +32,9 @@ var x = 0;
 while (x < menu_data.entries.length) {
     menu_data.entries[x].path = menu_data.entries[x].href;
     if (menu_data.entries[x].path != 'home') {
-        menu_data.entries[x].href = 'http://0.0.0.0:8000/' + menu_data.entries[x].href;
+        menu_data.entries[x].href = '/' + menu_data.entries[x].href;
     } else {
-        menu_data.entries[x].href = 'http://0.0.0.0:8000/'
+        menu_data.entries[x].href = '/'
     };
 
     if (menu_data.entries[x].sub_items != undefined) {
@@ -134,6 +134,10 @@ function renderToString(source, data) {
     var outputString = template(data);
 
     return outputString;
+};
+
+for (x in sitelist) {
+    renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
 };
 
 /* GET home page. */

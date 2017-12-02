@@ -47,9 +47,9 @@
     {{#each team.entries}}
         <div class="team">
             {{#if image}}
-                <img src="http://0.0.0.0:8000/images/practice_team/{{ image }}" alt="Portrait von {{ name }}"/>
+                <img src="/images/practice_team/{{ image }}" alt="Portrait von {{ name }}"/>
             {{else}}
-                <img src="http://0.0.0.0:8000/images/practice_team/silhouette.jpg" alt="Zeigt eine Silhouette"/>
+                <img src="/images/practice_team/silhouette.jpg" alt="Zeigt eine Silhouette"/>
             {{/if}}
             <h3>{{ name }}</h3>
             <p>{{ job_description }}</p>

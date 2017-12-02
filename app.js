@@ -27,6 +27,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/stylesheets",express.static(path.join(__dirname, "/stylesheets")));
+app.use("/javascripts",express.static(path.join(__dirname, "/javascripts")));
+app.use("/images",express.static(path.join(__dirname, "/images")));
 app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}));
 
 app.use('/', static);
