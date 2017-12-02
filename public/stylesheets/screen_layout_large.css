@@ -24,16 +24,6 @@
 /*---------- 1.2 header ----------*/
 #header {
     height: 165px;
-    background-image: url(../images/header.png);
-    background-color: #fff;
-}
-
-#header .logo {
-    height: 31px;
-    width: 118px;
-    margin: 31px 31px 0px 0px;
-    float: right;
-    background-image: url(../images/logo.png);
 }
 
 /*---------- 1.3 menu ----------*/
@@ -109,7 +99,7 @@
 
 #content .mainimage img {
     width: 100%;
-    box-shadow: -10px 10px 5px #DBDBDB;
+    box-shadow: -10px 10px 5px #e2e3e3;
 }
 
 /*---------- 1.4.1 home ----------*/
@@ -122,7 +112,7 @@
 #content img.medical_team {
     width: 25%;
     float: right;
-    box-shadow: -10px 10px 5px #DBDBDB;
+    box-shadow: -10px 10px 5px #e2e3e3;
 }
 
 #content ul.medical_team {
@@ -145,14 +135,19 @@
 
 #content .team img {
     width: 100%;
+    box-sizing: inherit;
 }
 
 #content .team h3 {
+    width: 100%;
     margin: 5px 0px 5px 0px;
+    box-sizing: inherit;
 }
 
 #content .team p {
+    width: 100%;
     margin: 0px;
+    box-sizing: inherit;
 }
 
 /*---------- 1.4.4 services ----------*/

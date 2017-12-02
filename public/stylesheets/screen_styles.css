@@ -8,6 +8,7 @@
     1.4 content
         1.4.1 home
         1.4.2 team
+        1.4.4 kontakt
     1.5 footer
 ----------*/
 
@@ -15,14 +16,14 @@
 
 /*---------- 1.0 body ----------*/
 body {
-    background-color: #DBDBDB;
+    background-color: #e2e3e3;
     line-height: 1.5em;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
 h1, h2, h3 {
-    color: #4b6eb7;
+    color: #0060AA;
     font-weight: normal;
 }
 
@@ -44,7 +45,7 @@ p.first {
 
 a {
     text-decoration: none;
-    color: #4b6eb7;
+    color: #0060AA;
 }
 
 /*---------- 1.1 wrapper ----------*/
@@ -57,11 +58,28 @@ a {
 /*---------- 1.2 header ----------*/
 #header {
     margin: 15px 0px 5px 0px;
+    background-image: url(../images/header.svg);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position-y: center;
+    background-position-x: 10px;
 }
 
 #header a {
     height: 100%;
     display: block;
+}
+
+#header .logo {
+    height: 100%;
+    width: 150px;
+    float: right;
+    margin-right: 15px;
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 10px;
 }
 
 /*---------- 1.3 menu ----------*/
@@ -72,19 +90,19 @@ a {
 
 #menu a {
     display: block;
-    background-color: #A0A0A0;
+    background-color: #727271;
     text-decoration: none;
     color: #FFF;
 }
 
 #menu a.menuactive {
     font-weight: bold;
-    background-color: #4b6eb7;
+    background-color: #0060AA;
 }
 
 #menu a:hover, #menu a:active {
     font-weight: bold;
-    background-color: #4b6eb7;
+    background-color: #0060AA;
 }
 
 #menu ul {
@@ -136,14 +154,14 @@ a {
 }
 
 #opening_times td, #opening_times th {
-    border: 1px solid #DBDBDB;
+    border: 1px solid #e2e3e3;
     border-collapse: collapse;
     padding: 5px;
 }
 
 #opening_times th {
-    color: #4b6eb7;
-    background-color: #DBDBDB;
+    color: #0060AA;
+    background-color: #e2e3e3;
 }
 
 #content .news::before {
@@ -151,7 +169,7 @@ a {
     height: 2px;
     display: block;
     content: close-quote;
-    background-color: #4b6eb7;
+    background-color: #0060AA;
 }
 
 /*---------- 1.4.2 team ----------*/
@@ -161,16 +179,41 @@ a {
     margin-left: 15px;
 }
 
+/*---------- 1.4.4 kontakt ----------*/
+#content #form {
+    margin-top: 15px;
+    display: block;
+    background-color: #e2e3e3;
+    padding: 15px;
+}
+
+#content #form h2 {
+    margin-top: 0px;
+}
+
+#content #form .input {
+    margin-bottom: 5px;
+}
+
+#content label.left {
+    display: inline-block;
+    min-width: 100px;
+}
+
+#content textarea {
+    margin-left: 4px;
+}
+
 /*---------- 1.5 footer ----------*/
 #footer {
     background-color: #FFF;
-    color: #4b6eb7;
+    color: #0060AA;
     padding: 5px 5px 5px 30px;
     clear: both;
 }
 
 #footer a {
-    color: #4b6eb7;
+    color: #0060AA;
 }
 
 #footer a:hover {

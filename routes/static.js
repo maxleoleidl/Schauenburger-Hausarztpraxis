@@ -3,8 +3,7 @@ var router = express.Router();
 var path = require('path');
 
 var menu_data = require('../public/sources/menu');
-var opening_data = require('../public/sources/opening_times');
-var news_data = require('../public/sources/news');
+var contact_data = require('../public/sources/contact');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -48,11 +47,30 @@ router.get('/leistungen/igel', function(req, res) {
 });
 
 router.get('/kontakt', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/contact.html');
+  res.render('contact', {title: 'Kontakt', email: req.session.email, success: req.session.success, errors: req.session.errors, menu: menu_data, menu_active: 'kontakt', contact: contact_data, map: true});
+  req.session.errors = null;
+  req.session.success = null;
+  req.session.email = null;
 });
 
 router.post('/kontakt/submit', function(req, res, next) {
-  req.check('email', 'Invalid email address').isEmail();
+  //req.check('email', 'Invalid email address').isEmail();
+  //req.check('name', 'Invalid name').isAlpha();
+
+  var errors = req.validationErrors();
+  if (errors) {
+    req.session.errors = errors;
+    req.session.success = false;
+  } else {
+    var body = req.body.gender + ' ' + req.body.name + ',' + '\n' + req.body.order;
+    var emaildata = {
+      emailadress: req.body.email,
+      text: body
+    }
+
+    req.session.email = emaildata;
+    req.session.success = true;
+  };
 
   res.redirect('/kontakt');
 });
