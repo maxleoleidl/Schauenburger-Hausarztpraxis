@@ -5,6 +5,7 @@
     1.1 wrapper
     1.2 header
     1.3 menu
+        1.3.1 submenu
     1.4 content
         1.4.1 home
         1.4.2 medical team
@@ -19,49 +20,40 @@
 /*---------- 1.1 wrapper ----------*/
 
 /*---------- 1.2 header ----------*/
-#header {
-    height: 165px;
+@media only screen and (min-width:10px) and (max-width:410px) {
+    #header {
+        height: 120px;
+        background-size: 150px;
+        background-position-x: 10px;
+    }
+
+    #header .logo {
+        width: 100px;
+    }
 }
 
 /*---------- 1.3 menu ----------*/
 #menu {
     overflow: hidden;
-}
-
-#menu ul {
-    margin-top: -2px;
-    max-height: 0px;
-    -webkit-transition: max-height 0.4s;
-    -ms-transition: max-height 0.4s;
-    -moz-transition: max-height 0.4s;
-    -o-transition: max-height 0.4s;
-    transition: max-height 0.4s;
-}
-
-#menu .showing {
-    max-height: 20em;
-    margin-top: 0px;
-}
-
-#menu a {
-    margin-bottom: 1px;
-    padding-left: 15px;
-}
-
-#menu ul ul li {
-    padding-left: 15px;
+    border-top: 1px solid #0060AA;
+    border-bottom: 1px solid #0060AA;
 }
 
 #menu .mobile {
     min-height: 28px;
-    padding: 15px;
     box-sizing: border-box;
     display: block;
-    color: #FFF;
-    background-color: #727271;
-    margin-bottom: 1px;
+    padding: 15px 15px 15px 20px;
+    color: #0060AA;
+    background-color: #FFF;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+#menu .showing {
+    max-height: 30em;
+    box-sizing: content-box;
+    margin-top: 0px;
 }
 
 #menu .buttom {
@@ -77,15 +69,51 @@
 }
 
 #menu span.color {
-    background-color: #e2e3e3;
+    background-color: #b2b3b3;
     border-radius: 2px;
 }
 
-#menu .last {
-    margin-bottom: 0px;
+#menu .handle.open::after {
+    content: '';
+    width: auto;
+    height: 1px;
+    display: block;
+    margin-top: 15px;
+    background-color: #b2b3b3;
+} 
+
+#menu ul {
+    max-height: 0px;
+    -webkit-transition: max-height 0.4s;
+    -ms-transition: max-height 0.4s;
+    -moz-transition: max-height 0.4s;
+    -o-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+}
+
+#menu li.last {
+    padding-bottom: 15px;
+}
+
+#menu a {
+    padding-left: 20px;
+}
+
+#menu a.menuactive.parent {
+    font-weight: normal;
+    color: #0060AA;
+    background-color: #FFF;
+}
+
+/*---------- 1.3.2 submenu ----------*/
+#menu ul ul a {
+    padding-left: 35px;
 }
 
 /*---------- 1.4 content ----------*/
+#content {
+    padding: 20px;
+}
 
 #content .mainimage {
     display: none;
@@ -95,6 +123,16 @@
 #content img.mobile {
     width: 100%;
     margin-top: 15px;
+}
+
+@media only screen and (min-width:10px) and (max-width:410px) {
+    #opening_times {
+        display: none;
+    }
+
+    #opening_times.small {
+        display: block;
+    }
 }
 
 /*---------- 1.4.2 medical team ----------*/

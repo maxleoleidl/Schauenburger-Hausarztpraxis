@@ -109,6 +109,51 @@
             </table>
             <span class="end"></span>
         </div>
+        <!-- Small Tables – Changed Direction -->
+        <div id="opening_times" class="small">
+            <table>
+                <tr>
+                    <th colspan="5">
+                        Öffnungszeiten
+                    </th>
+                </tr>
+                {{#each opening_times.entries_opening}}
+                    <tr>
+                        <td>
+                            {{ day }}
+                        </td>
+                        <td>
+                            {{ times1 }}
+                        </td>
+                        <td>
+                            {{ times2 }}
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+            <p></p>
+            <table>
+                <tr>
+                    <th colspan="5">
+                        Sprechzeiten
+                    </th>
+                </tr>
+                {{#each opening_times.entries_surgery}}
+                    <tr>
+                        <td>
+                            {{ day }}
+                        </td>
+                        <td>
+                            {{ times1 }}
+                        </td>
+                        <td>
+                            {{ times2 }}
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+            <span class="end"></span>
+        </div>
 
         <img class="mobile" src="images/home_medium_small.jpg" alt="Blick auf die Anmeldung"/>
 

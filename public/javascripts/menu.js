@@ -6,8 +6,12 @@ if (activelist.length > 1) {
 
     while (x < activelist.length) {
         var active = $('#menu')[0].classList[x];
-
-        $('#menu a.'+active)[0].className += ' ' + 'menuactive';
+        
+        if (x == 0) {
+            $('#menu a.'+active)[0].className += ' ' + 'menuactive' + ' ' + 'parent';
+        } else {
+            $('#menu a.'+active)[0].className += ' ' + 'menuactive';
+        };
 
         x++;
     };
@@ -25,5 +29,5 @@ $('#menu')[0].classList = '';
 
 $('.handle').on('click', function(){
     $('#menu ul').toggleClass('showing');
-    console.log('call function');
+    $('#menu .handle').toggleClass('open');
 });
