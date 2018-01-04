@@ -11,6 +11,7 @@ var expressSession = require('express-session');
 
 var static = require('./routes/static');
 var render = require('./routes/render');
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false})
 
 app.use('/', static);
 app.use('/render', render);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
