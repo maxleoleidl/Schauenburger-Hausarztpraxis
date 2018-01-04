@@ -1,6 +1,20 @@
 <div id="content" style="border-top: 1px solid #0060AA;">
     <h1>{{ title }}</h1>
-    <form action="/render">
-        <input type="submit" value="Speichern"/>
+
+    <form action="/admin/submit" method="post">
+    {{#each data}}
+        <div>
+            <label for="headline">Überschrift</label>
+            <textarea id="headline" name="headline">{{ headline }}</textarea>
+        </div>
+        {{#each items}}
+            <div>
+                <label for="item_{{ id }}">Absatz {{ id }}</label>
+                <textarea id="item_{{ id }}" name="item_{{ id }}">{{ entry }}</textarea>
+            </div>
+        {{/each}}
+    {{/each}}
+
+    <button type="submit">Speichern</button>
     </form>
 </div>

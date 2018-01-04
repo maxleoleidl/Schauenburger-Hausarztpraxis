@@ -1,0 +1,55 @@
+{
+    "entries":
+    [
+        {
+            "title": "Praxis",
+            "href": "home",
+            "class": "first"
+        },
+        {
+            "title": "Team",
+            "href": "team",
+            "sub_items": [
+                {
+                    "title": "Ärzteteam",
+                    "href": "aerzteteam"
+                },
+                {
+                    "title": "Praxisteam",
+                    "href": "praxisteam"
+                }
+            ]
+        },
+        {
+            "title": "Leistungen",
+            "href": "leistungen",
+            "sub_items": [
+                {
+                    "title": "Organisatorisches",
+                    "href": "organisatorisches"
+                },
+                {
+                    "title": "Grundversorgung",
+                    "href": "grundversorgung"
+                },
+                {
+                    "title": "Vorsorge",
+                    "href": "vorsorge"
+                },
+                {
+                    "title": "Chronische Erkrankungen",
+                    "href": "chronische_erkrankungen"
+                },
+                {
+                    "title": "IGeL",
+                    "href": "igel"
+                }
+            ]
+        },
+        {
+            "title": "Kontakt",
+            "href": "kontakt",
+            "class": "last"
+        }
+    ]
+}
