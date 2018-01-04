@@ -57,7 +57,9 @@ router.post('/submit', function(req, res, next) {
     /* write data to file */
     fs.writeFileSync('public/sources/news.json', output);
 
-    res.redirect('/admin');
+    data_commit = JSON.parse(output).entries;
+
+    res.redirect('/render');
 });
 
 module.exports = router;
