@@ -2,6 +2,10 @@ var express = require('express');
 var router = express();
 var hbs = require('handlebars');
 var fs = require('fs');
+var mongo = require('mongodb');
+var assert = require('assert');
+
+var url = 'mongodb://192.168.33.101:27017/test'
 
 /* Load data from json files */
 var opening_data = require('../public/sources/opening_times');

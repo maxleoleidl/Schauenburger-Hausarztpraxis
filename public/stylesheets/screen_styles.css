@@ -35,6 +35,10 @@ h1 {
     line-height: 1em;
 }
 
+h2 {
+    margin-bottom: -10px;
+}
+
 h3.first {
     margin-top: 0px;
 }
@@ -128,7 +132,6 @@ a {
 #content ul {
     list-style-type: none;
     padding: 0px;
-    margin: 0px;
 }
 
 /*---------- 1.4.1 home ----------*/
