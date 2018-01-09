@@ -172,6 +172,10 @@
     box-sizing: inherit;
 }
 
+#content .team.whole {
+    width: 50%;
+}
+
 /*---------- 1.4.4 services ----------*/
 
 

@@ -8,10 +8,17 @@ var hbs = require('express-handlebars');
 var $ = require('jquery');
 var expressValidator = require('express-validator');
 var expressSession = require('express-session');
+var passport = require('passport');
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://127.0.0.1/loginapp')
+var db = mongoose.connection;
 
 var static = require('./routes/static');
 var render = require('./routes/render');
 var admin = require('./routes/admin');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -25,6 +32,8 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -34,8 +43,9 @@ app.use("/images",express.static(path.join(__dirname, "/images")));
 app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}));
 
 app.use('/', static);
-app.use('/render', render);
-app.use('/admin', admin);
+//app.use('/render', render);
+//app.use('/admin', admin);
+//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -162,4 +162,8 @@
     min-height: 42px;
 }
 
+#content .team.whole {
+    width: 100%;
+}
+
 /*---------- 1.5 footer ----------*/
