@@ -5,10 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
-var $ = require('jquery');
 var expressValidator = require('express-validator');
 var expressSession = require('express-session');
+var flash = require('connect-flash');
+var $ = require('jquery');
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
@@ -32,20 +34,45 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(expressValidator());
 app.use(cookieParser());
+
+// static folders
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/stylesheets",express.static(path.join(__dirname, "/stylesheets")));
 app.use("/javascripts",express.static(path.join(__dirname, "/javascripts")));
 app.use("/images",express.static(path.join(__dirname, "/images")));
-app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}));
 
-app.use('/', static);
-//app.use('/render', render);
-//app.use('/admin', admin);
-//app.use('/users', users);
+// Express session
+app.use(expressSession({
+  secret: 'secret', //'max',
+  saveUninitialized: true, //false,
+  resave: true //false
+}));
+
+// passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+// connect flash
+app.use(flash());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,13 +83,29 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+
+  next();
+});
+
+/*
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
+*/
+
+app.use('/', static);
+app.use('/render', render);
+app.use('/admin', admin);
+app.use('/users', users);
 
 module.exports = app;
