@@ -173,9 +173,7 @@
             {{#each news.entries}}
             <p class="first">
                 <h3>{{ headline }}</h3>
-                {{#each items}}
-                    <p>{{ entry }}</p>
-                {{/each}}
+                <p>{{{ entry }}}</p>
             </p>
             {{/each}}
         </div>

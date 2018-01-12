@@ -6,6 +6,10 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
+
+    <!-- CKEditor 5 -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/screen_styles.css" />
     <link rel="stylesheet" type="text/css" media="only screen and (min-width:10px) and (max-width:500px)" href="/stylesheets/screen_layout_small.css" />
     <link rel="stylesheet" type="text/css" media="only screen and (min-width:821px)" href="/stylesheets/screen_layout_large.css" />
@@ -128,5 +132,13 @@
     <!-- script for opening and closing the mobile menu -->
     <script src="/javascripts/menu.js"></script>
 
+
+    <script>
+      ClassicEditor
+          .create( document.querySelector( '.editor' ) )
+          .catch( error => {
+              console.error( error );
+          } );
+    </script>
   </body>
 </html>

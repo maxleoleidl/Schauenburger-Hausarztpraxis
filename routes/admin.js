@@ -31,18 +31,7 @@ router.post('/submit', function(req, res, next) {
     var items = [];
     var i = 0;
 
-    while (i < 100) {
-        try {
-            var item = eval('req.body.item_' + i);
-            if (item != null) {
-                items.push.apply(items, [{"id": i, "entry": item}]);
-            };
-        } catch(err) {
-            i = 100;
-        };
-
-        i++;
-    };
+    var entry = eval('req.body.item');
 
     /* write data in the right form */
     var output = JSON.stringify({
@@ -51,7 +40,7 @@ router.post('/submit', function(req, res, next) {
         [
             {
                 "headline": headline,
-                "items": items
+                "entry": entry
             }
         ]
     });
@@ -68,7 +57,6 @@ function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	} else {
-		//req.flash('error_msg','You are not logged in');
 		res.redirect('/users/login');
 	}
 }

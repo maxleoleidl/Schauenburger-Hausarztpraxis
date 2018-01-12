@@ -195,19 +195,6 @@ a {
     margin-top: 0px;
 }
 
-#content #form .input {
-    margin-bottom: 5px;
-}
-
-#content label.left {
-    display: inline-block;
-    min-width: 100px;
-}
-
-#content textarea {
-    margin-left: 4px;
-}
-
 /*---------- 1.5 footer ----------*/
 #footer {
     clear: both;
@@ -235,6 +222,12 @@ a {
     border-bottom: 1px solid;
 }
 
+.alert.alert-success {
+    border-color: #5cb85c;
+    color: #5cb85c;
+    font-weight: bold;
+}
+
 .alert.alert-danger {
     border-color: #d9534f;
     color: #d9534f;
@@ -242,3 +235,58 @@ a {
 }
 
 /*---------- 1.7 forms ----------*/
+.label {
+    width: 15%;
+    margin-top: 10px;
+    clear: both;
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.input_field {
+    width: 85%;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.ck-editor {
+    width: 85%;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 10px;
+}
+
+form.login {
+    width: 180px;
+}
+
+.login.label {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.login.input_field {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit_button {
+    margin-top: 10px;
+    padding: 5px;
+    clear: both;
+    float: left;
+    color: #FFF;
+    font-weight: bold;
+    background-color: #4d97d2;
+}
+
+.login.submit_button {
+    width: 100%;
+}
