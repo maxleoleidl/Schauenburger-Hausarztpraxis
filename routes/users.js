@@ -5,15 +5,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-		//req.flash('error_msg','You are not logged in');
-		res.redirect('/users/login');
-	}
-}
-
 router.get('/register', function(req, res) {
     res.render('register');
 });
@@ -22,6 +13,7 @@ router.get('/login', function(req, res) {
     res.render('login');
 });
 
+/*
 router.post('/register', function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
@@ -61,8 +53,13 @@ router.post('/register', function(req, res) {
         res.redirect('/users/login');
     };
 });
+*/
 
 passport.use(new LocalStrategy(function(username, password, done) {
+    console.log(username);
+    console.log(password);
+    console.log(done);
+
     User.getUserByUsername(username, function(err, user){
         if(err) throw err;
         if(!user) {
@@ -91,7 +88,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-    passport.authenticate('local', {successRedirect:'/admin', failureRedirect:'/users/login',failureFlash: true}),
+    passport.authenticate('local', {successRedirect:'/admin', failureRedirect:'/users/login', badRequestMessage : 'Es wurden keine oder zu wenig Daten eingegeben', failureFlash: true}),
     function(req, res) {
         res.redirect('/admin');
 });
@@ -99,7 +96,7 @@ router.post('/login',
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
+	req.flash('success_msg', 'Erfolgreich ausgeloggt');
 
 	res.redirect('/users/login');
 });

@@ -14,6 +14,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
+// Connect to database
 mongoose.connect('mongodb://127.0.0.1/loginapp')
 var db = mongoose.connection;
 
@@ -22,9 +23,10 @@ var render = require('./routes/render');
 var admin = require('./routes/admin');
 var users = require('./routes/users');
 
+// Init app
 var app = express();
 
-// view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('view engine', 'hbs');
@@ -32,11 +34,13 @@ app.set('view engine', 'hbs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+
+// BodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// static folders
+// Set static folders
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/stylesheets",express.static(path.join(__dirname, "/stylesheets")));
 app.use("/javascripts",express.static(path.join(__dirname, "/javascripts")));
@@ -44,12 +48,12 @@ app.use("/images",express.static(path.join(__dirname, "/images")));
 
 // Express session
 app.use(expressSession({
-  secret: 'secret', //'max',
-  saveUninitialized: true, //false,
-  resave: true //false
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
 }));
 
-// passport init
+// Passport init
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -74,16 +78,8 @@ app.use(expressValidator({
 // connect flash
 app.use(flash());
 
-// catch 404 and forward to error handler
+// Global variables
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
@@ -92,20 +88,37 @@ app.use(function(err, req, res, next) {
   next();
 });
 
-/*
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-*/
-
 app.use('/', static);
 app.use('/render', render);
 app.use('/admin', admin);
 app.use('/users', users);
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Die Seite konnte nicht gefunden werden');
+  err.status = 404;
+  
+  next(err);
+});
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    console.log();
+    console.log('development error handler');
+    console.log(err.status);
+    console.log(err.message);
+
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+
+    console.log();
+  });
+}
 
 module.exports = app;

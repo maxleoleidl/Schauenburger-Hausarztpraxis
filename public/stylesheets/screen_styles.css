@@ -1,6 +1,6 @@
 /*---------- structur ----------*/
 /*----------
-1. mobile version
+1. generall design
     1.0 body
     1.1 wrapper
     1.2 header
@@ -10,6 +10,8 @@
         1.4.2 team
         1.4.4 kontakt
     1.5 footer
+    1.6 messages
+    1.7 forms
 ----------*/
 
 @charset "UTF-8";
@@ -223,3 +225,20 @@ a {
 #footer a:hover {
     text-decoration: underline;
 }
+
+/*---------- 1.6 messages ----------*/
+.alert {
+    margin-right: 30px;
+    margin-bottom: 1.34em;
+    padding: 5px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.alert.alert-danger {
+    border-color: #d9534f;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/*---------- 1.7 forms ----------*/

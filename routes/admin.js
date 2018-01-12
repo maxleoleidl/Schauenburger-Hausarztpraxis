@@ -16,7 +16,7 @@ var contact_data = require('../public/sources/contact');
 var data_commit = news_data.entries;
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', ensureAuthenticated, function(req, res) {
     res.render('admin', {title: "Administration", data: data_commit});
 });
 
@@ -63,5 +63,14 @@ router.post('/submit', function(req, res, next) {
 
     res.redirect('/render');
 });
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/users/login');
+	}
+}
 
 module.exports = router;
