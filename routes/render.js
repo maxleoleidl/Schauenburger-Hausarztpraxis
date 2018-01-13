@@ -143,7 +143,8 @@ for (x in sitelist) {
 /* GET home page. */
 router.get('/', function(req, res) {
     /* reload the file content */
-    var news_data = JSON.parse(fs.readFileSync('public/sources/news.json'));
+    news_data = JSON.parse(fs.readFileSync('public/sources/news.json'));
+    opening_data = JSON.parse(fs.readFileSync('public/sources/opening_times.json'));
 
     /* combine the new data */
     sitelist = {

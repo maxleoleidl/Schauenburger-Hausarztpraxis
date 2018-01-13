@@ -13,7 +13,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var FroalaEditor = require( 'froala-editor' );
 
 // Connect to database
 mongoose.connect('mongodb://127.0.0.1/loginapp')
