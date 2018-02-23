@@ -1,0 +1,169 @@
+/*---------- structur ----------*/
+/*----------
+1. handy version
+    1.0 body
+    1.1 wrapper
+    1.2 header
+    1.3 menu
+        1.3.1 submenu
+    1.4 content
+        1.4.1 home
+        1.4.2 medical team
+        1.4.3 practice team
+    1.5 footer
+----------*/
+
+@charset "UTF-8";
+
+/*---------- 1.0 body ----------*/
+
+/*---------- 1.1 wrapper ----------*/
+
+/*---------- 1.2 header ----------*/
+@media only screen and (min-width:10px) and (max-width:410px) {
+    #header {
+        height: 120px;
+        background-size: 150px;
+        background-position-x: 10px;
+    }
+
+    #header .logo {
+        width: 100px;
+    }
+}
+
+/*---------- 1.3 menu ----------*/
+#menu {
+    overflow: hidden;
+    border-top: 1px solid #0060AA;
+    border-bottom: 1px solid #0060AA;
+}
+
+#menu .mobile {
+    min-height: 28px;
+    box-sizing: border-box;
+    display: block;
+    padding: 15px 15px 15px 20px;
+    color: #0060AA;
+    background-color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#menu .showing {
+    max-height: 30em;
+    box-sizing: content-box;
+    margin-top: 0px;
+}
+
+#menu .button {
+    float: right;
+    height: 18px;
+    width: 18px;
+    display: block;
+}
+
+#menu span {
+    display: block;
+    height: 20%;
+}
+
+#menu span.color {
+    background-color: #b2b3b3;
+    border-radius: 2px;
+}
+
+#menu .handle.open::after {
+    content: '';
+    width: auto;
+    height: 1px;
+    display: block;
+    margin-top: 15px;
+    background-color: #b2b3b3;
+} 
+
+#menu ul {
+    max-height: 0px;
+    -webkit-transition: max-height 0.4s;
+    -ms-transition: max-height 0.4s;
+    -moz-transition: max-height 0.4s;
+    -o-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+}
+
+#menu li.last {
+    padding-bottom: 15px;
+}
+
+#menu a {
+    padding-left: 20px;
+}
+
+#menu a.menuactive.parent {
+    font-weight: normal;
+    color: #0060AA;
+    background-color: #FFF;
+}
+
+/*---------- 1.3.2 submenu ----------*/
+#menu ul ul a {
+    padding-left: 35px;
+}
+
+/*---------- 1.4 content ----------*/
+#content {
+    padding: 20px;
+}
+
+#content .mainimage {
+    display: none;
+}
+
+/*---------- 1.4.1 home ----------*/
+#content img.mobile {
+    width: 100%;
+    margin-top: 15px;
+}
+
+@media only screen and (min-width:10px) and (max-width:410px) {
+    #opening_times {
+        display: none;
+    }
+
+    #opening_times.small {
+        display: block;
+    }
+}
+
+/*---------- 1.4.2 medical team ----------*/
+#content img.medical_team {
+    width: 100%;
+}
+
+/*---------- 1.4.3 practice team ----------*/
+#content .team {
+    width: 50%;
+    float: left;
+    padding-right: 30px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+#content .team img {
+    width: 100%;
+}
+
+#content .team h3 {
+    margin: 5px 0px 5px 0px;
+}
+
+#content .team p {
+    margin: 0px;
+    min-height: 42px;
+}
+
+#content .team.whole {
+    width: 100%;
+}
+
+/*---------- 1.5 footer ----------*/

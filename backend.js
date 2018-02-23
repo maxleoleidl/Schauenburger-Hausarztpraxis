@@ -18,7 +18,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/loginapp')
 var db = mongoose.connection;
 
-var static = require('./routes/static');
 var render = require('./routes/render');
 var admin = require('./routes/admin');
 var users = require('./routes/users');
@@ -88,7 +87,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', static);
 app.use('/render', render);
 app.use('/admin', admin);
 app.use('/users', users);

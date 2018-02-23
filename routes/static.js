@@ -7,43 +7,43 @@ var contact_data = require('../public/sources/contact');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/index.html');
+  res.sendFile(path.join(__dirname, '../static') + '/index.html');
 });
 
 router.get('/team', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/medical_team.html');
+  res.sendFile(path.join(__dirname, '../static') + '/medical_team.html');
 });
 
 router.get('/team/aerzteteam', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/medical_team.html');
+  res.sendFile(path.join(__dirname, '../static') + '/medical_team.html');
 });
 
 router.get('/team/praxisteam', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/practice_team.html');
+  res.sendFile(path.join(__dirname, '../static') + '/practice_team.html');
 });
 
 router.get('/leistungen', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/organisatorisches.html');
+  res.sendFile(path.join(__dirname, '../static') + '/organisatorisches.html');
 });
 
 router.get('/leistungen/organisatorisches', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/organisatorisches.html');
+  res.sendFile(path.join(__dirname, '../static') + '/organisatorisches.html');
 });
 
 router.get('/leistungen/grundversorgung', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/grundversorgung.html');
+  res.sendFile(path.join(__dirname, '../static') + '/grundversorgung.html');
 });
 
 router.get('/leistungen/vorsorge', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/vorsorge.html');
+  res.sendFile(path.join(__dirname, '../static') + '/vorsorge.html');
 });
 
 router.get('/leistungen/chronische_erkrankungen', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/chronische_erkrankungen.html');
+  res.sendFile(path.join(__dirname, '../static') + '/chronische_erkrankungen.html');
 });
 
 router.get('/leistungen/igel', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/igel.html');
+  res.sendFile(path.join(__dirname, '../static') + '/igel.html');
 });
 
 router.get('/kontakt', function(req, res, next) {
@@ -76,7 +76,7 @@ router.post('/kontakt/submit', function(req, res, next) {
 });
 
 router.get('/impressum', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/staticsites') + '/impressum.html');
+  res.sendFile(path.join(__dirname, '../static') + '/impressum.html');
 });
 
 module.exports = router;

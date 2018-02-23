@@ -1,0 +1,292 @@
+/*---------- structur ----------*/
+/*----------
+1. generall design
+    1.0 body
+    1.1 wrapper
+    1.2 header
+    1.3 menu
+    1.4 content
+        1.4.1 home
+        1.4.2 team
+        1.4.4 kontakt
+    1.5 footer
+    1.6 messages
+    1.7 forms
+----------*/
+
+@charset "UTF-8";
+
+/*---------- 1.0 body ----------*/
+body {
+    background-color: #f2f3f3;
+    line-height: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    color: #0060AA;
+    font-weight: normal;
+}
+
+h1.first, h2.first, h3.first {
+    margin-top: 0px;
+}
+
+h1 {
+    line-height: 1em;
+}
+
+h2 {
+    margin-bottom: -10px;
+}
+
+h3.first {
+    margin-top: 0px;
+}
+
+p.first {
+    margin-top: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #0060AA;
+}
+
+/*---------- 1.1 wrapper ----------*/
+#wrapper {
+    min-width: 320px;
+    max-width: 1024px;
+    margin: 0px auto 0px auto;
+    position: relative;
+}
+
+/*---------- 1.2 header ----------*/
+#header {
+    height: 165px;
+    margin: 15px 0px 0px 0px;
+    background-image: url(../images/header.svg);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position-y: center;
+    background-position-x: 10px;
+}
+
+#header a {
+    height: 100%;
+    display: block;
+}
+
+#header .logo {
+    height: 100%;
+    width: 150px;
+    float: right;
+    margin-right: 15px;
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 10px;
+}
+
+/*---------- 1.3 menu ----------*/
+#menu ul {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFF;
+}
+
+#menu a {
+    height: 31px;
+    display: block;
+    box-sizing: border-box;
+    padding: 5px;
+    text-decoration: none;
+    color: #0060AA;
+}
+
+#menu a.menuactive {
+    font-weight: bold;
+    color: #FFF;
+    background-color: #0060AA;
+}
+
+#menu p {
+    margin: 0px;
+}
+
+/*---------- 1.3.2 submenu ----------*/
+
+/*---------- 1.4 content ----------*/
+#content {
+    background-color: white;
+    clear: both;
+    padding: 30px;
+}
+
+#content .end {
+    display: block;
+    clear: both;
+}
+
+#content ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+/*---------- 1.4.1 home ----------*/
+
+#content .days {
+    clear: right;
+    float: left;
+}
+
+#content .times {
+    float: right;
+}
+
+#opening_times table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#opening_times td, #opening_times th {
+    border: 1px solid #f2f3f3;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#opening_times th {
+    color: #0060AA;
+    background-color: #f2f3f3;
+}
+
+#opening_times.small {
+    display: none;
+}
+
+#content .news::before {
+    width: 100%;
+    height: 1px;
+    display: block;
+    content: close-quote;
+    background-color: #0060AA;
+}
+
+/*---------- 1.4.2 team ----------*/
+
+#content ul.medical_team {
+    list-style-type: square;
+    margin-left: 15px;
+}
+
+/*---------- 1.4.4 kontakt ----------*/
+#content #form {
+    margin-top: 15px;
+    display: block;
+    background-color: #f2f3f3;
+    padding: 15px;
+}
+
+#content #form h2 {
+    margin-top: 0px;
+}
+
+/*---------- 1.5 footer ----------*/
+#footer {
+    clear: both;
+    padding: 5px 30px 5px 5px;
+    border-top: 1px solid #0060AA;
+    color: #0060AA;
+    background-color: #FFF;
+    text-align: right;
+}
+
+#footer a {
+    color: #0060AA;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/*---------- 1.6 messages ----------*/
+.alert {
+    margin-right: 30px;
+    margin-bottom: 1.34em;
+    padding: 5px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.alert.alert-success {
+    border-color: #5cb85c;
+    color: #5cb85c;
+    font-weight: bold;
+}
+
+.alert.alert-danger {
+    border-color: #d9534f;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/*---------- 1.7 forms ----------*/
+.label {
+    width: 15%;
+    margin-top: 10px;
+    clear: both;
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.input_field {
+    width: 85%;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.ck-editor {
+    width: 85%;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 10px;
+}
+
+form.login {
+    width: 180px;
+}
+
+.login.label {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.login.input_field {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit_button {
+    margin-top: 10px;
+    padding: 5px;
+    clear: both;
+    float: left;
+    color: #FFF;
+    font-weight: bold;
+    background-color: #4d97d2;
+}
+
+.login.submit_button {
+    width: 100%;
+}

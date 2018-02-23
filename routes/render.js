@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express();
 var hbs = require('handlebars');
-var fs = require('fs');
+var fs = require('fs-extra');
 
 /* Load data from json files */
 var menu_data = require('../public/sources/menu');
@@ -51,59 +51,6 @@ while (x < menu_data.entries.length) {
     x++;
 };
 
-var sitelist = {
-    index: [
-        'views/index.hbs',
-        "static/index.html",
-        {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', opening_times: opening_data, news: news_data, map: false}
-    ],
-    medical_team: [
-        'views/medical_team.hbs',
-        "static/medical_team.html",
-        {title: 'Ihr Ärzteteam', menu: menu_data, menu_active: 'team aerzteteam', team: medical_data, map: false}
-    ],
-    practice_team: [
-        'views/practice_team.hbs',
-        "static/practice_team.html",
-        {title: 'Unser Praxisteam', menu: menu_data, menu_active: 'team praxisteam', team: practice_data, map: false}
-    ],
-    organisatorisches: [
-        'views/services_text.hbs',
-        "static/organisatorisches.html",
-        {title: 'Wichtiges zur Organisation', menu: menu_data, menu_active: 'leistungen organisatorisches', services: organisatorisches, map: false}
-    ],
-    grundversorgung: [
-        'views/services_list.hbs',
-        "static/grundversorgung.html",
-        {title: 'Medizinische Grundversorgung', menu: menu_data, menu_active: 'leistungen grundversorgung', services: grundversorgung, map: false}
-    ],
-    vorsorge: [
-        'views/services_list.hbs',
-        "static/vorsorge.html",
-        {title: 'Vorsorge', menu: menu_data, menu_active: 'leistungen vorsorge', services: vorsorge, map: false}
-    ],
-    chronische_erkrankungen: [
-        'views/services_list.hbs',
-        "static/chronische_erkrankungen.html",
-        {title: 'DMP (Disease-Management-Programme)', menu: menu_data, menu_active: 'leistungen chronische_erkrankungen', services: chronische_erkrankungen, map: false}
-    ],
-    igel: [
-        'views/services_text.hbs',
-        "static/igel.html",
-        {title: 'Individuelle Wunsch-Gesundheitsleistungen (IGeL)', menu: menu_data, menu_active: 'leistungen igel', services: igel, map: false}
-    ],
-    contact: [
-        'views/contact.hbs',
-        "static/contact.html",
-        {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact_data, map: true, test: 'test'}
-    ],
-    impressum: [
-        'views/impressum.hbs',
-        "static/impressum.html",
-        {title: 'Impressum', menu: menu_data, contact: contact_data, map: false}
-    ]
-};
-
 function renderContent(file, output, jsondata) {
     fs.readFile(file, 'utf8', function(err, data){
         if (!err) {
@@ -134,10 +81,6 @@ function renderToString(source, data) {
     var outputString = template(data);
 
     return outputString;
-};
-
-for (x in sitelist) {
-    renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
 };
 
 /* GET home page. */
@@ -204,6 +147,33 @@ router.get('/', function(req, res) {
     for (x in sitelist) {
         renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
     };
+
+    /* Copy image folder */
+    fs.copy('public/images', 'static/images', function (err) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log("success!");
+        }
+    });
+
+    /* Copy javascripts folder */
+    fs.copy('public/javascripts', 'static/javascripts', function (err) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log("success!");
+        }
+    });
+    
+    /* Copy stylesheets folder */
+    fs.copy('public/stylesheets', 'static/stylesheets', function (err) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log("success!");
+        }
+    });
 
     res.render('render', {title: "Die statischen Webseiten wurden erfolgreich erstellt."});
 });
