@@ -39,8 +39,10 @@
       </div>
     </div>
 
-    <!-- script for opening and closing the mobile menu -->
-    <script src="/javascripts/menu.js"></script>
+    {{#if menu}}
+      <!-- script for opening and closing the mobile menu -->
+      <script type="text/javascript" src="/javascripts/menu.js"></script>
+    {{/if}}
 
     {{#if map}}
       <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
@@ -52,7 +54,7 @@
       </script>
     {{/if}}
 
-    <script>
+    <script type="text/javascript">
       var selector = document.getElementsByClassName('editor');
       for (var i = 0; i < selector.length; i++) {
         ClassicEditor

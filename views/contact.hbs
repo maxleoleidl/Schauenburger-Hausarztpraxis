@@ -54,48 +54,35 @@
             <p>
                 Beachten Sie, dass das Formular <strong>ausschließlich</strong> für den vorgesehenen Zweck als Bestellformular für Dauermedikation und regelmäßig ausgestellte Überweisungen einzusetzen ist! Andere Anliegen werden von uns nicht über dieses Medium bearbeitet.
             </p>
-            
-            {{# if success}}
-                <section class="success">
-                    <h2>Successful Validation!</h2>
-                </section>
-            {{else}}
-                {{# if errors}}
-                    <section class="errors">
-                        <ul>
-                            {{# each errors}}
-                                <li>{{this.msg}}</li>
-                            {{/each}}
-                        </ul>
-                    </section>
-                {{/if}}
-                <form action="kontakt/submit" method="post">
-                    <div class="input">
-                        <label class="left" for="gender">Anrede</label>
-                        <input type="radio" id="female" value="Frau" name="gender" required="">
-                        <label for="female">Frau</label>
-                        <input type="radio" id="male" value="Herr" name="gender" required="">
-                        <label for="Male">Herr</label>
-                    </div>
-                    <div class="input">
-                        <label class="left" for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required="">
-                    </div>
-                    <div class="input">
-                        <label class="left" for="birth">Geburtsdatum</label>
-                        <input type="date" id="birth" name="birth" placeholder="01.01.2000" required="">
-                    </div>
-                    <div class="input">
-                        <label class="left" for="email">E-Mail</label>
-                        <input type="text" id="email" name="email" required="">
-                    </div>
-                    <div class="input">
-                        <label class="left" for="order" style="float: left;">Bestellung</label>
-                        <textarea name="order" id="order" cols="45" rows="5" wrap="virtual" placeholder="Medikament/Überweisung" required=""></textarea>
-                    </div>
-                    <button type="submit">Send E-Mail</button>
-                </form>
-            {{/if}}
+
+            <div id="message"></div>
+        
+            <form id="emailform">
+                <div class="input">
+                    <label class="left" for="gender">Anrede</label>
+                    <input type="radio" id="female" value="Frau" name="gender" required="">
+                    <label for="female">Frau</label>
+                    <input type="radio" id="male" value="Herr" name="gender" required="">
+                    <label for="Male">Herr</label>
+                </div>
+                <div class="input">
+                    <label class="left" for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required="">
+                </div>
+                <div class="input">
+                    <label class="left" for="birth">Geburtsdatum</label>
+                    <input type="date" id="birth" name="birth" placeholder="01.01.2000" required="">
+                </div>
+                <div class="input">
+                    <label class="left" for="email">E-Mail</label>
+                    <input type="text" id="email" name="email" required="">
+                </div>
+                <div class="input">
+                    <label class="left" for="order" style="float: left;">Bestellung</label>
+                    <textarea name="order" id="order" cols="45" rows="5" wrap="virtual" placeholder="Medikament/Überweisung" required=""></textarea>
+                </div>
+                <button type="button" name="submit" onclick="validateForm()">Send E-Mail</button>
+            </form>
         </div>
         
     </div>
@@ -107,4 +94,63 @@
         © <a href="http://www.openstreetmap.org">OpenStreetMap</a> und <a href="http://www.openstreetmap.org/copyright">Mitwirkende</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/deed.de">CC-BY-SA</a>
     </div>
     <span class="end"></span>
+    
+    <!--<script type="text/javascript" src="/javascripts/emailform.js"></script>-->
+    <script type="text/javascript">
+        function validateGender(gender) {
+            console.log("Gender validation:");
+
+            if (gender == '') {
+                return ("Bitte wählen sie eine Anrede aus.")
+            } else {
+                return ('')
+            };
+        };
+
+        function validateEmail(email) {
+            console.log("Email validation:");
+
+            if (email == '') {
+                return ("Bitte geben sie eine E-Mail-Adresse ein.")
+            };
+
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                return ('')
+            } else {
+                return ('Sie haben eine ungültige E-Mail-Adresse eingegeben.')
+            };
+        };
+
+        function validateForm() {
+            console.log("Validate Form:");
+            var error = '';
+            $('#message')[0].innerHTML = '';
+
+            // Input
+            var gender = document.forms["emailform"]["gender"].value;
+            var name = document.forms["emailform"]["name"].value;
+            var birth = document.forms["emailform"]["birth"].value;
+            var email = document.forms["emailform"]["email"].value;
+            var order = document.forms["emailform"]["order"].value;
+
+            console.log(gender);
+            console.log(name);
+            console.log(birth);
+            console.log(email);
+            console.log(order);
+
+            message = validateGender(gender) + '' + validateEmail(email);
+            error = message;
+
+            if (error == '') {
+                $('#message')[0].innerHTML = 'Ihre Daten wurden erfolgreich an die Praxis übermittelt.'
+            } else {
+                $('#message')[0].innerHTML = error;
+            };
+
+            error = '';
+        };
+
+        console.log("Form Validation");
+    </script>
 </div>

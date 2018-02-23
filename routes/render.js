@@ -60,7 +60,7 @@ function renderContent(file, output, jsondata) {
             fs.readFile('views/layouts/layout.hbs', 'utf8', function(err, data) {
                 if (!err) {
                     var sourcelayout = data.toString();
-                    var html = renderToString(sourcelayout, {body: newdata, map: jsondata['map']});
+                    var html = renderToString(sourcelayout, {body: newdata, map: jsondata['map'], menu: true});
                     
                     fs.writeFileSync(output, html);
                 } else {
@@ -149,6 +149,8 @@ router.get('/', function(req, res) {
     };
 
     /* Copy image folder */
+    fs.emptyDirSync('static/images');
+
     fs.copy('public/images', 'static/images', function (err) {
         if (err) {
             console.error(err);
@@ -158,6 +160,8 @@ router.get('/', function(req, res) {
     });
 
     /* Copy javascripts folder */
+    fs.emptyDirSync('static/javascripts');
+
     fs.copy('public/javascripts', 'static/javascripts', function (err) {
         if (err) {
             console.error(err);
@@ -167,6 +171,8 @@ router.get('/', function(req, res) {
     });
     
     /* Copy stylesheets folder */
+    fs.emptyDirSync('static/stylesheets');
+
     fs.copy('public/stylesheets', 'static/stylesheets', function (err) {
         if (err) {
             console.error(err);
