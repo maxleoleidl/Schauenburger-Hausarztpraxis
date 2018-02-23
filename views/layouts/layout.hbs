@@ -53,11 +53,14 @@
     {{/if}}
 
     <script>
-      ClassicEditor
-          .create( document.querySelector( '.editor' ) )
+      var selector = document.getElementsByClassName('editor');
+      for (var i = 0; i < selector.length; i++) {
+        ClassicEditor
+          .create( selector[i] )
           .catch( error => {
               console.error( error );
           } );
+      };
     </script>
   </body>
 </html>

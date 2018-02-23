@@ -54,52 +54,52 @@ while (x < menu_data.entries.length) {
 var sitelist = {
     index: [
         'views/index.hbs',
-        "public/staticsites/index.html",
+        "static/index.html",
         {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', opening_times: opening_data, news: news_data, map: false}
     ],
     medical_team: [
         'views/medical_team.hbs',
-        "public/staticsites/medical_team.html",
+        "static/medical_team.html",
         {title: 'Ihr Ärzteteam', menu: menu_data, menu_active: 'team aerzteteam', team: medical_data, map: false}
     ],
     practice_team: [
         'views/practice_team.hbs',
-        "public/staticsites/practice_team.html",
+        "static/practice_team.html",
         {title: 'Unser Praxisteam', menu: menu_data, menu_active: 'team praxisteam', team: practice_data, map: false}
     ],
     organisatorisches: [
         'views/services_text.hbs',
-        "public/staticsites/organisatorisches.html",
+        "static/organisatorisches.html",
         {title: 'Wichtiges zur Organisation', menu: menu_data, menu_active: 'leistungen organisatorisches', services: organisatorisches, map: false}
     ],
     grundversorgung: [
         'views/services_list.hbs',
-        "public/staticsites/grundversorgung.html",
+        "static/grundversorgung.html",
         {title: 'Medizinische Grundversorgung', menu: menu_data, menu_active: 'leistungen grundversorgung', services: grundversorgung, map: false}
     ],
     vorsorge: [
         'views/services_list.hbs',
-        "public/staticsites/vorsorge.html",
+        "static/vorsorge.html",
         {title: 'Vorsorge', menu: menu_data, menu_active: 'leistungen vorsorge', services: vorsorge, map: false}
     ],
     chronische_erkrankungen: [
         'views/services_list.hbs',
-        "public/staticsites/chronische_erkrankungen.html",
+        "static/chronische_erkrankungen.html",
         {title: 'DMP (Disease-Management-Programme)', menu: menu_data, menu_active: 'leistungen chronische_erkrankungen', services: chronische_erkrankungen, map: false}
     ],
     igel: [
         'views/services_text.hbs',
-        "public/staticsites/igel.html",
+        "static/igel.html",
         {title: 'Individuelle Wunsch-Gesundheitsleistungen (IGeL)', menu: menu_data, menu_active: 'leistungen igel', services: igel, map: false}
     ],
     contact: [
         'views/contact.hbs',
-        "public/staticsites/contact.html",
+        "static/contact.html",
         {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact_data, map: true, test: 'test'}
     ],
     impressum: [
         'views/impressum.hbs',
-        "public/staticsites/impressum.html",
+        "static/impressum.html",
         {title: 'Impressum', menu: menu_data, contact: contact_data, map: false}
     ]
 };
@@ -150,52 +150,52 @@ router.get('/', function(req, res) {
     sitelist = {
         index: [
             'views/index.hbs',
-            "public/staticsites/index.html",
+            "static/index.html",
             {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', opening_times: opening_data, news: news_data, map: false}
         ],
         medical_team: [
             'views/medical_team.hbs',
-            "public/staticsites/medical_team.html",
+            "static/medical_team.html",
             {title: 'Ihr Ärzteteam', menu: menu_data, menu_active: 'team aerzteteam', team: medical_data, map: false}
         ],
         practice_team: [
             'views/practice_team.hbs',
-            "public/staticsites/practice_team.html",
+            "static/practice_team.html",
             {title: 'Unser Praxisteam', menu: menu_data, menu_active: 'team praxisteam', team: practice_data, map: false}
         ],
         organisatorisches: [
             'views/services_text.hbs',
-            "public/staticsites/organisatorisches.html",
+            "static/organisatorisches.html",
             {title: 'Wichtiges zur Organisation', menu: menu_data, menu_active: 'leistungen organisatorisches', services: organisatorisches, map: false}
         ],
         grundversorgung: [
             'views/services_list.hbs',
-            "public/staticsites/grundversorgung.html",
+            "static/grundversorgung.html",
             {title: 'Medizinische Grundversorgung', menu: menu_data, menu_active: 'leistungen grundversorgung', services: grundversorgung, map: false}
         ],
         vorsorge: [
             'views/services_list.hbs',
-            "public/staticsites/vorsorge.html",
+            "static/vorsorge.html",
             {title: 'Vorsorge', menu: menu_data, menu_active: 'leistungen vorsorge', services: vorsorge, map: false}
         ],
         chronische_erkrankungen: [
             'views/services_list.hbs',
-            "public/staticsites/chronische_erkrankungen.html",
+            "static/chronische_erkrankungen.html",
             {title: 'DMP (Disease-Management-Programme)', menu: menu_data, menu_active: 'leistungen chronische_erkrankungen', services: chronische_erkrankungen, map: false}
         ],
         igel: [
             'views/services_text.hbs',
-            "public/staticsites/igel.html",
+            "static/igel.html",
             {title: 'Individuelle Wunsch-Gesundheitsleistungen (IGeL)', menu: menu_data, menu_active: 'leistungen igel', services: igel, map: false}
         ],
         contact: [
             'views/contact.hbs',
-            "public/staticsites/contact.html",
+            "static/contact.html",
             {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact_data, map: true, test: 'test'}
         ],
         impressum: [
             'views/impressum.hbs',
-            "public/staticsites/impressum.html",
+            "static/impressum.html",
             {title: 'Impressum', menu: menu_data, contact: contact_data, map: false}
         ]
     };

@@ -16,13 +16,15 @@ var contact_data = require('../public/sources/contact');
 
 var news_data_commit = news_data.entries;
 var opening_data_commit = opening_data;
+var medical_data_commit = medical_data;
 
 /* GET home page. */
 router.get('/', ensureAuthenticated, function(req, res) {
     res.render('admin', {
         title: "Administration",
         news_data: news_data_commit,
-        opening_data: opening_data_commit
+        opening_data: opening_data_commit,
+        medical_data: medical_data_commit
     });
 });
 
@@ -50,6 +52,8 @@ router.post('/submit', function(req, res, next) {
     var days = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
     var entries_opening =   [];
     var entries_surgery = [];
+
+    /* read data medical team */
 
     for (var i = 0; i < 5; i++) {
         entries_opening.push({

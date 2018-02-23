@@ -1,90 +1,118 @@
-<div id="content" style="border-top: 1px solid #0060AA;">
-    <div class="mainparagraph">
-        <h1>{{ title }}</h1>
+<div id="content" style="border-top: 1px solid #0060AA; padding-right: 30px;">
+    <h1>{{ title }}</h1>
 
-        <div id="admin_menu">
-            <ul>
-                <li>Aktuelles</li>
-                <li id="test"></li>
-            </ul>
+    <div id="admin_menu">
+        <ul>
+            <li>Aktuelles</li>
+            <li>Öffnungszeiten</li>
+        </ul>
+    </div>
+
+    <form action="/admin/submit" method="post">
+        <!-- news data -->
+        <h2>Aktuelles</h2>
+        {{#each news_data}}
+            <div>
+                <label class="label" for="news_headline">Überschrift</label>
+                <textarea class="input_field" id="news_headline" name="news_headline">{{ headline }}</textarea>
+            </div>
+            <div>
+                <label class="label" for="news_item">Text</label>
+                <textarea class="editor input_field" id="news_item" name="news_item">{{{ entry }}}</textarea>
+            </div>
+        {{/each}}
+        
+        <!-- opening times -->
+        <div id="opening_times">
+            <h2>Öffnungszeiten und Sprechzeiten</h2>
+            <!-- opening times -->
+            <table>
+                <tr>
+                    <th colspan="5">
+                        Öffnungszeiten
+                    </th>
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_opening}}
+                    <td>
+                        {{ day }}
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_opening}}
+                    <td>
+                        <textarea class="input_field" id="opening_item1{{ id }}" name="opening_item1{{ id }}">{{ times1 }}</textarea>
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_opening}}
+                    <td>
+                        <textarea class="input_field" id="opening_item2{{ id }}" name="opening_item2{{ id }}">{{ times2 }}</textarea>
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
+
+            <!-- surgery times -->
+            <table>
+                <tr>
+                    <th colspan="5">
+                        Sprechzeiten
+                    </th>
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_surgery}}
+                    <td>
+                        {{ day }}
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_surgery}}
+                    <td>
+                        <textarea class="input_field" id="surgery_item1{{ id }}" name="surgery_item1{{ id }}">{{ times1 }}</textarea>
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each opening_data.entries_surgery}}
+                    <td>
+                        <textarea class="input_field" id="surgery_item2{{ id }}" name="surgery_item2{{ id }}">{{ times2 }}</textarea>
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
         </div>
 
-        <!-- Aktuelle -->
-        <form action="/admin/submit" method="post">
-            {{#each news_data}}
-                <div>
-                    <label class="label" for="news_headline">Überschrift</label>
-                    <textarea class="input_field" id="news_headline" name="news_headline">{{ headline }}</textarea>
-                </div>
-                <div>
-                    <label class="label" for="news_item">Text</label>
-                    <textarea class="editor input_field" id="news_item" name="news_item">{{{ entry }}}</textarea>
-                </div>
+        <!-- medical team -->
+        <div>
+            <h2>ÄrtInnen</h2>
+            {{#each medical_data.entries}}
+                <h3>{{ name }}</h3>
+                <label class="label" for="medical_headline">Überschrift</label>
+                <textarea class="input_field" id="medical_headline" name="medical_headline">{{ title }} {{ name }} geb. {{ birthyear }}</textarea>
+
+                <ul>
+                    {{#each curriculum_vitae}}
+                        {{#if subentries}}
+                            <label class="label" for="medical_headline">{{ entry }}</label>
+                            <textarea class="editor input_field" id="medical_headline" name="medical_headline"><ul class="medical_team">{{#each subentries}}<li>{{ entry }}</li>{{/each}}</ul></textarea>
+                        {{else}}
+                        <li>
+                            <label class="label" for="medical_headline">Eintrag</label>
+                            <textarea class="editor input_field" id="medical_headline" name="medical_headline">{{ entry }}</textarea>
+                        </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+                <span class="end"></span>
             {{/each}}
-            
-            <div id="opening_times">
-                <table>
-                    <tr>
-                        <th colspan="5">
-                            Öffnungszeiten
-                        </th>
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_opening}}
-                        <td>
-                            {{ day }}
-                        </td>
-                        {{/each}}
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_opening}}
-                        <td>
-                            <textarea class="input_field" id="opening_item1{{ id }}" name="opening_item1{{ id }}">{{ times1 }}</textarea>
-                        </td>
-                        {{/each}}
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_opening}}
-                        <td>
-                            <textarea class="input_field" id="opening_item2{{ id }}" name="opening_item2{{ id }}">{{ times2 }}</textarea>
-                        </td>
-                        {{/each}}
-                    </tr>
-                </table>
+        </div>
 
-                <table>
-                    <tr>
-                        <th colspan="5">
-                            Sprechzeiten
-                        </th>
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_surgery}}
-                        <td>
-                            {{ day }}
-                        </td>
-                        {{/each}}
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_surgery}}
-                        <td>
-                            <textarea class="input_field" id="surgery_item1{{ id }}" name="surgery_item1{{ id }}">{{ times1 }}</textarea>
-                        </td>
-                        {{/each}}
-                    </tr>
-                    <tr>
-                        {{#each opening_data.entries_surgery}}
-                        <td>
-                            <textarea class="input_field" id="surgery_item2{{ id }}" name="surgery_item2{{ id }}">{{ times2 }}</textarea>
-                        </td>
-                        {{/each}}
-                    </tr>
-                </table>
-            </div>
+        <button class="submit_button" type="submit">Speichern</button>
+    </form>
 
-            <button class="submit_button" type="submit">Speichern</button>
-        </form>
-
-    </div>
     <span class="end"></span>
 </div>
