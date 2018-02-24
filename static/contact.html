@@ -184,23 +184,35 @@
     
     <!--<script type="text/javascript" src="/javascripts/emailform.js"></script>-->
     <script type="text/javascript">
-        function validateGender(gender) {
-            console.log("Gender validation:");
-
-            if (gender == '') {
-                return ("Bitte wählen sie eine Anrede aus.")
+        function validateEmpty(type, testobject, empty) {
+            if (testobject == '') {
+                if (empty == '') {
+                    return (type)
+                } else {
+                    return (", " + type)
+                };
             } else {
                 return ('')
             };
         };
 
-        function validateEmail(email) {
-            console.log("Email validation:");
-
-            if (email == '') {
-                return ("Bitte geben sie eine E-Mail-Adresse ein.")
+        function validateName(name) {
+            if (/^\w+ \w+$/.test(name)) {
+                return ('')
+            } else {
+                return ('Sie haben einen ungültige Namen eingegeben.')
             };
+        };
 
+        function validateBirth(birth) {
+            if (birth[0] + birth[1] + birth[2] + birth[3] <= 2018) {
+                return ('')
+            } else {
+                return ('Sie haben ein Geburtsjahr angegeben, dass in der Zukunft liegt.')
+            };
+        };
+
+        function validateEmail(email) {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                 return ('')
             } else {
@@ -209,7 +221,10 @@
         };
 
         function validateForm() {
-            console.log("Validate Form:");
+            var empty_err = '';
+            var name_err = '';
+            var birth_err = '';
+            var email_err = '';
             var error = '';
             $('#message')[0].innerHTML = '';
 
@@ -220,25 +235,44 @@
             var email = document.forms["emailform"]["email"].value;
             var order = document.forms["emailform"]["order"].value;
 
-            console.log(gender);
-            console.log(name);
-            console.log(birth);
-            console.log(email);
-            console.log(order);
+            empty_err = validateEmpty("Anrede", gender, empty_err)
+            empty_err += validateEmpty("Name", name, empty_err)
+            empty_err += validateEmpty("Geburtsdatum", birth, empty_err)
+            empty_err += validateEmpty("E-Mail", email, empty_err)
+            empty_err += validateEmpty("Bestellung", order, empty_err);
 
-            message = validateGender(gender) + '' + validateEmail(email);
-            error = message;
+            name_err = validateName(name);
+            birth_err = validateBirth(birth);
+            email_err = validateEmail(email);
+
+            error = empty_err + name_err + email_err;
+
+            if (empty_err != '') {
+                $('#message')[0].innerHTML = "Bitte füllen sie die folgenden Felder aus: ";
+                $('#message')[0].innerHTML += empty_err;
+                $('#message')[0].className = "alert-danger alert";
+            };
+
+            if (empty_err == '' && name_err != '') {
+                $('#message')[0].innerHTML = name_err;
+                $('#message')[0].className = "alert-danger alert";
+            };
+
+            if (empty_err == '' && name_err == '' && birth_err != '') {
+                $('#message')[0].innerHTML = birth_err;
+                $('#message')[0].className = "alert-danger alert";
+            };
+
+            if (empty_err == '' && name_err == '' && birth_err == '' && email_err != '') {
+                $('#message')[0].innerHTML = email_err;
+                $('#message')[0].className = "alert-danger alert";
+            };
 
             if (error == '') {
                 $('#message')[0].innerHTML = 'Ihre Daten wurden erfolgreich an die Praxis übermittelt.'
-            } else {
-                $('#message')[0].innerHTML = error;
+                $('#message')[0].className = "alert-success alert";
             };
-
-            error = '';
         };
-
-        console.log("Form Validation");
     </script>
 </div>
 
