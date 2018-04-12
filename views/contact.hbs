@@ -39,11 +39,21 @@
 
     <div class="mainparagraph">
         <ul>
-            {{#each contact.entries}}
             <li>
-                {{#if type}}{{ type }} {{/if}}{{ data }}
+                {{ contact.name }}
             </li>
-            {{/each}}
+            <li>
+                {{ contact.street }}
+            </li>
+            <li>
+                {{ contact.city }}
+            </li>
+            <li>
+                Telefon {{ contact.phone }}
+            </li>
+            <li>
+                Fax {{ contact.fax }}
+            </li>
         </ul>
 
         <div id="form">

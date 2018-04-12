@@ -53,24 +53,24 @@
                     </th>
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_opening}}
+                    {{#each openingHours}}
                     <td>
                         {{ day }}
                     </td>
                     {{/each}}
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_opening}}
+                    {{#each openingHours}}
                     <td>
-                        {{ times1 }}
+                        {{ open }} – {{ close }} Uhr
                     </td>
                     {{/each}}
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_opening}}
+                    {{#each openingHours}}
                     <td>
-                        {{#if times2}}
-                        {{ times2 }}
+                        {{#if open2}}
+                            {{ open2 }} – {{ close2 }} Uhr
                         {{/if}}
                     </td>
                     {{/each}}
@@ -84,24 +84,24 @@
                     </th>
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_surgery}}
+                    {{#each surgeryHours}}
                     <td>
                         {{ day }}
                     </td>
                     {{/each}}
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_surgery}}
+                    {{#each surgeryHours}}
                     <td>
-                        {{ times1 }}
+                        {{ open }} – {{ close }} Uhr
                     </td>
                     {{/each}}
                 </tr>
                 <tr>
-                    {{#each opening_times.entries_surgery}}
+                    {{#each surgeryHours}}
                     <td>
-                        {{#if times2}}
-                        {{ times2 }}
+                        {{#if open2}}
+                            {{ open2 }} – {{ close2 }} Uhr
                         {{/if}}
                     </td>
                     {{/each}}
@@ -109,6 +109,7 @@
             </table>
             <span class="end"></span>
         </div>
+
         <!-- Small Tables – Changed Direction -->
         <div id="opening_times" class="small">
             <table>
@@ -117,16 +118,18 @@
                         Öffnungszeiten
                     </th>
                 </tr>
-                {{#each opening_times.entries_opening}}
+                {{#each openingHours}}
                     <tr>
                         <td>
                             {{ day }}
                         </td>
                         <td>
-                            {{ times1 }}
+                            {{ open }} – {{ close }} Uhr
                         </td>
                         <td>
-                            {{ times2 }}
+                            {{#if open2}}
+                                {{ open2 }} – {{ close2 }} Uhr
+                            {{/if}}
                         </td>
                     </tr>
                 {{/each}}
@@ -138,16 +141,18 @@
                         Sprechzeiten
                     </th>
                 </tr>
-                {{#each opening_times.entries_surgery}}
+                {{#each surgeryHours}}
                     <tr>
                         <td>
                             {{ day }}
                         </td>
                         <td>
-                            {{ times1 }}
+                            {{ open }} – {{ close }} Uhr
                         </td>
                         <td>
-                            {{ times2 }}
+                            {{#if open2}}
+                                {{ open2 }} – {{ close2 }} Uhr
+                            {{/if}}
                         </td>
                     </tr>
                 {{/each}}
@@ -167,14 +172,11 @@
             Sie finden unsere Praxis in der Großenritter Str. 4-6, 34270 Schauenburg-Elgershausen (siehe <a href="/kontakt#map">Lage/Anfahrt</a>).
         </p>
 
-        {{#if news.content}}
+        {{#if news}}
         <div class="news">
             <h2>Aktuelles:</h2>
-            {{#each news.entries}}
-            <p class="first">
-                <h3>{{ headline }}</h3>
-                <p>{{{ entry }}}</p>
-            </p>
+            {{#each news}}
+                {{{ text }}}
             {{/each}}
         </div>
         {{/if}}

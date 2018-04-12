@@ -5,12 +5,10 @@ var fs = require('fs-extra');
 
 /* Load data from json files */
 var menu_data = require('../public/sources/menu');
-var opening_data = require('../public/sources/opening_times');
 var news_data = require('../public/sources/news');
 var medical_data = require('../public/sources/medical_team');
 var practice_data = require('../public/sources/practice_team');
 var services_data = require('../public/sources/services');
-var contact_data = require('../public/sources/contact');
 
 /* Devide the service data */
 for (x in services_data.entries) {
@@ -86,15 +84,18 @@ function renderToString(source, data) {
 /* GET home page. */
 router.get('/', function(req, res) {
     /* reload the file content */
-    news_data = JSON.parse(fs.readFileSync('public/sources/news.json'));
-    opening_data = JSON.parse(fs.readFileSync('public/sources/opening_times.json'));
+    var master = require('../public/sources/master');
+    var openingHours = master.openingHours;
+    var surgeryHours = master.surgeryHours;
+    var news = master.posts
+    var contact = master.contact
 
     /* combine the new data */
     sitelist = {
         index: [
             'views/index.hbs',
             "static/index.html",
-            {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', opening_times: opening_data, news: news_data, map: false}
+            {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', openingHours: openingHours, surgeryHours: surgeryHours, news: news, map: false}
         ],
         medical_team: [
             'views/medical_team.hbs',
@@ -134,12 +135,12 @@ router.get('/', function(req, res) {
         contact: [
             'views/contact.hbs',
             "static/contact.html",
-            {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact_data, map: true, test: 'test'}
+            {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact, map: true, test: 'test'}
         ],
         impressum: [
             'views/impressum.hbs',
             "static/impressum.html",
-            {title: 'Impressum', menu: menu_data, contact: contact_data, map: false}
+            {title: 'Impressum', menu: menu_data, contact: contact, map: false}
         ]
     };
 
