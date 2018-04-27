@@ -2,6 +2,7 @@ var express = require('express');
 var router = express();
 var hbs = require('handlebars');
 var fs = require('fs-extra');
+var mkdirp = require('mkdirp');
 
 /* Load data from json files */
 var menu_data = require('../public/sources/menu');
@@ -29,21 +30,26 @@ for (x in services_data.entries) {
 var x = 0;
 while (x < menu_data.entries.length) {
     menu_data.entries[x].path = menu_data.entries[x].href;
-    if (menu_data.entries[x].path != 'home') {
-        menu_data.entries[x].href = '/' + menu_data.entries[x].href;
-    } else {
-        menu_data.entries[x].href = '/'
-    };
 
     if (menu_data.entries[x].sub_items != undefined) {
         
         var y = 0;
         while (y < menu_data.entries[x].sub_items.length) {
             menu_data.entries[x].sub_items[y].path = menu_data.entries[x].sub_items[y].href;
-            menu_data.entries[x].sub_items[y].href = menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
+            menu_data.entries[x].sub_items[y].href = '/' + menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
 
             y++;
         };
+    };
+
+    if (menu_data.entries[x].path == 'home') {
+        menu_data.entries[x].href = '/';
+    } else if (menu_data.entries[x].path == 'team') {
+        menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/aerzteteam';
+    } else if (menu_data.entries[x].path == 'leistungen') {
+        menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/organisatorisches';
+    } else {
+        menu_data.entries[x].href = '/' + menu_data.entries[x].href;
     };
 
     x++;
@@ -94,59 +100,60 @@ router.get('/', function(req, res) {
     sitelist = {
         index: [
             'views/index.hbs',
-            "static/index.html",
+            "static",
             {title: 'Willkommen in Ihrer Hausarztpraxis!', menu: menu_data, menu_active: 'home', openingHours: openingHours, surgeryHours: surgeryHours, news: news, map: false}
         ],
         medical_team: [
             'views/medical_team.hbs',
-            "static/medical_team.html",
+            "static/team/aerzteteam",
             {title: 'Ihr Ärzteteam', menu: menu_data, menu_active: 'team aerzteteam', team: medical_data, map: false}
         ],
         practice_team: [
             'views/practice_team.hbs',
-            "static/practice_team.html",
+            "static/team/praxisteam",
             {title: 'Unser Praxisteam', menu: menu_data, menu_active: 'team praxisteam', team: practice_data, map: false}
         ],
         organisatorisches: [
             'views/services_text.hbs',
-            "static/organisatorisches.html",
+            "static/leistungen/organisatorisches",
             {title: 'Wichtiges zur Organisation', menu: menu_data, menu_active: 'leistungen organisatorisches', services: organisatorisches, map: false}
         ],
         grundversorgung: [
             'views/services_list.hbs',
-            "static/grundversorgung.html",
+            "static/leistungen/grundversorgung",
             {title: 'Medizinische Grundversorgung', menu: menu_data, menu_active: 'leistungen grundversorgung', services: grundversorgung, map: false}
         ],
         vorsorge: [
             'views/services_list.hbs',
-            "static/vorsorge.html",
+            "static/leistungen/vorsorge",
             {title: 'Vorsorge', menu: menu_data, menu_active: 'leistungen vorsorge', services: vorsorge, map: false}
         ],
         chronische_erkrankungen: [
             'views/services_list.hbs',
-            "static/chronische_erkrankungen.html",
+            "static/leistungen/chronische_erkrankungen",
             {title: 'DMP (Disease-Management-Programme)', menu: menu_data, menu_active: 'leistungen chronische_erkrankungen', services: chronische_erkrankungen, map: false}
         ],
         igel: [
             'views/services_text.hbs',
-            "static/igel.html",
+            "static/leistungen/igel",
             {title: 'Individuelle Wunsch-Gesundheitsleistungen (IGeL)', menu: menu_data, menu_active: 'leistungen igel', services: igel, map: false}
         ],
         contact: [
             'views/contact.hbs',
-            "static/contact.html",
+            "static/kontakt",
             {title: 'Kontakt', menu: menu_data, menu_active: 'kontakt', contact: contact, map: true, test: 'test'}
         ],
         impressum: [
             'views/impressum.hbs',
-            "static/impressum.html",
+            "static/impressum",
             {title: 'Impressum', menu: menu_data, contact: contact, map: false}
         ]
     };
 
     /* Render the different content */
     for (x in sitelist) {
-        renderContent(sitelist[x][0], sitelist[x][1], sitelist[x][2]);
+        mkdirp(sitelist[x][1], function(err) {});
+        renderContent(sitelist[x][0], sitelist[x][1] + '/index.html', sitelist[x][2]);
     };
 
     /* Copy image folder */

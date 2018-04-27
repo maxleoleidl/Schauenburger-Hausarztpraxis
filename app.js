@@ -39,6 +39,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Static server
+app.use(express.static('static'))
+
 // Set static folders
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/stylesheets",express.static(path.join(__dirname, "/stylesheets")));
