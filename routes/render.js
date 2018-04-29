@@ -4,57 +4,6 @@ var hbs = require('handlebars');
 var fs = require('fs-extra');
 var mkdirp = require('mkdirp');
 
-/* Load data from json files */
-var menu_data = require('../public/sources/menu');
-var news_data = require('../public/sources/news');
-var medical_data = require('../public/sources/medical_team');
-var practice_data = require('../public/sources/practice_team');
-var services_data = require('../public/sources/services');
-
-/* Devide the service data */
-for (x in services_data.entries) {
-    if (services_data.entries[x].link == 'grundversorgung') {
-    var grundversorgung = services_data.entries[x];
-    } else if (services_data.entries[x].link == 'vorsorge') {
-    var vorsorge = services_data.entries[x];
-    } else if (services_data.entries[x].link == 'chronische_erkrankungen') {
-    var chronische_erkrankungen = services_data.entries[x];
-    } else if (services_data.entries[x].link == 'organisatorisches') {
-    var organisatorisches = services_data.entries[x];
-    } else if (services_data.entries[x].link == 'igel') {
-    var igel = services_data.entries[x];
-    };
-};
-
-/* mark the current site */
-var x = 0;
-while (x < menu_data.entries.length) {
-    menu_data.entries[x].path = menu_data.entries[x].href;
-
-    if (menu_data.entries[x].sub_items != undefined) {
-        
-        var y = 0;
-        while (y < menu_data.entries[x].sub_items.length) {
-            menu_data.entries[x].sub_items[y].path = menu_data.entries[x].sub_items[y].href;
-            menu_data.entries[x].sub_items[y].href = '/' + menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
-
-            y++;
-        };
-    };
-
-    if (menu_data.entries[x].path == 'home') {
-        menu_data.entries[x].href = '/';
-    } else if (menu_data.entries[x].path == 'team') {
-        menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/aerzteteam';
-    } else if (menu_data.entries[x].path == 'leistungen') {
-        menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/organisatorisches';
-    } else {
-        menu_data.entries[x].href = '/' + menu_data.entries[x].href;
-    };
-
-    x++;
-};
-
 function renderContent(file, output, jsondata) {
     fs.readFile(file, 'utf8', function(err, data){
         if (!err) {
@@ -93,8 +42,56 @@ router.get('/', function(req, res) {
     var master = require('../public/sources/master');
     var openingHours = master.openingHours;
     var surgeryHours = master.surgeryHours;
-    var news = master.posts
-    var contact = master.contact
+    var news = master.posts;
+    var contact = master.contact;
+    var menu_data = master.menu;
+    var medical_data = master.medicalTeam;
+    var practice_data = master.practiceTeam;
+    var services_data = master.services;
+
+    /* Devide the service data */
+    for (x in services_data.entries) {
+        if (services_data.entries[x].link == 'grundversorgung') {
+        var grundversorgung = services_data.entries[x];
+        } else if (services_data.entries[x].link == 'vorsorge') {
+        var vorsorge = services_data.entries[x];
+        } else if (services_data.entries[x].link == 'chronische_erkrankungen') {
+        var chronische_erkrankungen = services_data.entries[x];
+        } else if (services_data.entries[x].link == 'organisatorisches') {
+        var organisatorisches = services_data.entries[x];
+        } else if (services_data.entries[x].link == 'igel') {
+        var igel = services_data.entries[x];
+        };
+    };
+
+    /* mark the current site */
+    var x = 0;
+    while (x < menu_data.entries.length) {
+        menu_data.entries[x].path = menu_data.entries[x].href;
+
+        if (menu_data.entries[x].sub_items != undefined) {
+            
+            var y = 0;
+            while (y < menu_data.entries[x].sub_items.length) {
+                menu_data.entries[x].sub_items[y].path = menu_data.entries[x].sub_items[y].href;
+                menu_data.entries[x].sub_items[y].href = '/' + menu_data.entries[x].href + "/" + menu_data.entries[x].sub_items[y].href;
+
+                y++;
+            };
+        };
+
+        if (menu_data.entries[x].path == 'home') {
+            menu_data.entries[x].href = '/';
+        } else if (menu_data.entries[x].path == 'team') {
+            menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/aerzteteam';
+        } else if (menu_data.entries[x].path == 'leistungen') {
+            menu_data.entries[x].href = '/' + menu_data.entries[x].href + '/organisatorisches';
+        } else {
+            menu_data.entries[x].href = '/' + menu_data.entries[x].href;
+        };
+
+        x++;
+    };
 
     /* combine the new data */
     sitelist = {
