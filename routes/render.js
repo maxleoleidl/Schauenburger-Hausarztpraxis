@@ -39,15 +39,18 @@ function renderToString(source, data) {
 /* GET home page. */
 router.get('/', function(req, res) {
     /* reload the file content */
-    var master = require('../public/sources/master');
-    var openingHours = master.openingHours;
-    var surgeryHours = master.surgeryHours;
-    var news = master.posts;
-    var contact = master.contact;
-    var menu_data = master.menu;
-    var medical_data = master.medicalTeam;
-    var practice_data = master.practiceTeam;
-    var services_data = master.services;
+    var mastereditable = require('../stateFile.json');
+    var masterstatic = require('../public/sources/master.json');
+
+    var openingHours = mastereditable.openingHours;
+    var surgeryHours = mastereditable.surgeryHours;
+    var news = mastereditable.posts;
+    var contact = mastereditable.contact;
+    
+    var menu_data = masterstatic.menu;
+    var medical_data = masterstatic.medicalTeam;
+    var practice_data = masterstatic.practiceTeam;
+    var services_data = masterstatic.services;
 
     /* Devide the service data */
     for (x in services_data.entries) {

@@ -13,10 +13,11 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var fs = require('fs')
 
 // Connect to database
-mongoose.connect('mongodb://127.0.0.1/loginapp')
-var db = mongoose.connection;
+// mongoose.connect('mongodb://127.0.0.1/loginapp')
+// var db = mongoose.connection;
 
 var render = require('./routes/render');
 var admin = require('./routes/admin');
@@ -47,6 +48,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/stylesheets",express.static(path.join(__dirname, "/stylesheets")));
 app.use("/javascripts",express.static(path.join(__dirname, "/javascripts")));
 app.use("/images",express.static(path.join(__dirname, "/images")));
+
+// read state from file and send to frontend
+app.get('/api', function(req, res) {
+  fs.readFile('./stateFile.json', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('Parsing state from file...')
+      const state = JSON.parse(data)
+      res.json(state)
+    }
+  })
+})
+
+// get state from frontend and write to file
+app.post('/api', function(req, res) {
+  state = req.body
+  fs.writeFile('./stateFile.json', JSON.stringify(state), 'utf8', () => {
+    console.log('Wrote state to file..')
+    res.sendStatus(200)
+  })
+})
 
 // Express session
 app.use(expressSession({
