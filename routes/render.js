@@ -39,8 +39,10 @@ function renderToString(source, data) {
 /* GET home page. */
 router.get('/', function(req, res) {
     /* reload the file content */
-    var mastereditable = require('../stateFile.json');
-    var masterstatic = require('../public/sources/master.json');
+    //var mastereditable = require('../stateFile.json');
+    //var masterstatic = require('../public/sources/master.json');
+    var mastereditable = JSON.parse(fs.readFileSync('./stateFile.json'));
+    var masterstatic = JSON.parse(fs.readFileSync('./public/sources/master.json'));
 
     var openingHours = mastereditable.openingHours;
     var surgeryHours = mastereditable.surgeryHours;
@@ -51,6 +53,8 @@ router.get('/', function(req, res) {
     var medical_data = masterstatic.medicalTeam;
     var practice_data = masterstatic.practiceTeam;
     var services_data = masterstatic.services;
+
+    console.log(menu_data)
 
     /* Devide the service data */
     for (x in services_data.entries) {
@@ -95,6 +99,8 @@ router.get('/', function(req, res) {
 
         x++;
     };
+
+    console.log(menu_data)
 
     /* combine the new data */
     sitelist = {
@@ -189,7 +195,7 @@ router.get('/', function(req, res) {
         }
     });
 
-    res.render('render', {title: "Die statischen Webseiten wurden erfolgreich erstellt."});
+    res.render('render', {title: "Die Webseiten wurden erfolgreich aktualisiert."});
 });
 
 module.exports = router;
