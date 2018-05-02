@@ -16,8 +16,8 @@ var mongoose = require('mongoose');
 var fs = require('fs')
 
 // Connect to database
-// mongoose.connect('mongodb://127.0.0.1/loginapp')
-// var db = mongoose.connection;
+mongoose.connect('mongodb://127.0.0.1/loginapp')
+var db = mongoose.connection;
 
 var render = require('./routes/render');
 var admin = require('./routes/admin');
@@ -39,9 +39,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// Static server
-app.use(express.static('static'))
 
 // Set static folders
 app.use(express.static(path.join(__dirname, 'public')));
@@ -117,6 +114,8 @@ app.use('/render', render);
 app.use('/admin', admin);
 app.use('/users', users);
 
+// Static server
+app.use(express.static('static'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

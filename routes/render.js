@@ -37,7 +37,7 @@ function renderToString(source, data) {
 };
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', ensureAuthenticated, function(req, res) {
     /* reload the file content */
     //var mastereditable = require('../stateFile.json');
     //var masterstatic = require('../public/sources/master.json');
@@ -197,5 +197,13 @@ router.get('/', function(req, res) {
 
     res.render('render', {title: "Die Webseiten wurden erfolgreich aktualisiert."});
 });
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        res.redirect('/users/login');
+    }
+}
 
 module.exports = router;

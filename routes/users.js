@@ -13,7 +13,6 @@ router.get('/login', function(req, res) {
     res.render('login');
 });
 
-/*
 router.post('/register', function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
@@ -44,7 +43,7 @@ router.post('/register', function(req, res) {
         });
 
         User.createUser(newUser, function(err, user) {
-            if(err) throw err;
+            if(err) {throw err};
             console.log(user);
         });
 
@@ -53,7 +52,6 @@ router.post('/register', function(req, res) {
         res.redirect('/users/login');
     };
 });
-*/
 
 passport.use(new LocalStrategy(function(username, password, done) {
     console.log(username);
@@ -96,7 +94,7 @@ router.post('/login',
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'Erfolgreich ausgeloggt');
+	req.flash('success_msg', 'Sie haben sich erfolgreich ausgeloggt.');
 
 	res.redirect('/users/login');
 });
