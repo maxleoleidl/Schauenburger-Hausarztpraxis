@@ -153,6 +153,11 @@ router.get('/', ensureAuthenticated, function(req, res) {
             'views/impressum.hbs',
             "static/impressum",
             {title: 'Impressum', menu: menu_data, contact: contact, map: false}
+        ],
+        datenschutzerklaerung: [
+            'views/datenschutzerklaerung.hbs',
+            "static/datenschutzerklaerung",
+            {title: 'Datenschutzerklärung', menu: menu_data, map: false}
         ]
     };
 
