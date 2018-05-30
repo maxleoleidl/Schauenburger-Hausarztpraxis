@@ -157,7 +157,7 @@ router.get('/', ensureAuthenticated, function(req, res) {
         datenschutzerklaerung: [
             'views/datenschutzerklaerung.hbs',
             "static/datenschutzerklaerung",
-            {title: 'Datenschutzerklärung', menu: menu_data, map: false}
+            {title: 'Datenschutzerklärung', menu: menu_data, contact: contact, map: false}
         ]
     };
 
