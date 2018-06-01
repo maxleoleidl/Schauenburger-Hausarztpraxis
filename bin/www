@@ -28,7 +28,7 @@ var Options = {
 };
 
 //var server = https.createServer(Options, app);
-var server = http.createServer(app);
+var server = https.createServer(Options, app);
 /**
  * Listen on provided port, on all network interfaces.
  */
