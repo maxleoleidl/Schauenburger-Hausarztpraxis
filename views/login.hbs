@@ -1,5 +1,5 @@
 <div id="content" style="border-top: 1px solid #0060AA;">
-    <h1>Account Login</h1>
+    <h1>Administration – Anmeldung</h1>
 
     {{#if success_msg}}
     <div class="alert alert-success">{{success_msg}}</div>
@@ -23,6 +23,9 @@
             <input class="login input_field" type="password" name="password" placeholder="Passwort">
         </div>
         <button class="login submit_button" type="submit">Login</button>
+    </form>
+    <form style="width: 180px;" action="/">
+        <input class="login submit_button" type="submit" value="Abbrechen" />
     </form>
 
     <span class="end"></span>

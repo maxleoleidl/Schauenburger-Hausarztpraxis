@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 var fs = require('fs')
 
 // Connect to database
-mongoose.connect('mongodb://127.0.0.1:27017/loginapp')
+mongoose.connect('mongodb://127.0.0.1/loginapp')
 var db = mongoose.connection;
 
 var render = require('./routes/render');

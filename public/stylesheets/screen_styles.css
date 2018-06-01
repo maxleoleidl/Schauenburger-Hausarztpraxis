@@ -291,3 +291,8 @@ form.login {
 .login.submit_button {
     width: 100%;
 }
+
+.render {
+    float: left;
+    margin-right: 10px;
+}

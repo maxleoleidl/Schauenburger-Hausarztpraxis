@@ -1,9 +1,13 @@
 <div id="content" style="border-top: 1px solid #0060AA;">
     <h1>{{ title }}</h1>
-    <form action="/">
-        <input type="submit" value="Webseite ansehen" />
+    <form class="render" action="/">
+        <input class="submit_button" type="submit" value="Webseite ansehen" />
     </form>
-    <form action="/admin">
-        <input type="submit" value="Zurück zur Administration" />
+    <form class="render" action="/admin">
+        <input class="submit_button" type="submit" value="Zurück zur Administration" />
     </form>
+    <form class="render" action="/users/logout">
+        <input class="submit_button" type="submit" value="Abmelden" />
+    </form>
+    <span class="end"></span>
 </div>
