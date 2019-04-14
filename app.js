@@ -16,8 +16,12 @@ var mongoose = require('mongoose');
 var fs = require('fs')
 
 // Connect to database
-mongoose.connect('mongodb://localhost:27017/loginapp')
+mongoose.connect('mongodb://localhost:27017/loginapp', {
+  useCreateIndex: true,
+  useNewUrlParser: true
+});
 var db = mongoose.connection;
+console.log(mongoose.version);
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

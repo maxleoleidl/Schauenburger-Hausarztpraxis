@@ -18,41 +18,7 @@ var path = require('path');
 var port = normalizePort(process.env.PORT || '8443');
 app.set('port', port);
 
-/**
- * Create HTTPS server.
- */
-
-/**
-var Options = {
-  key: fs.readFileSync('./ssl/private.key'),
-  cert: fs.readFileSync('./ssl/certificate.cert'),
-}; 
-*/
-
-//var server = https.createServer(Options, app);
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-/**
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-*/
-
-/**
- * Create HTTP redirection
- */
-
 var httpserver = http.createServer(app);
-
-/**
-var httpserver = http.createServer(function(req, res) {
-  console.log("https://192.168.33.101:8443" + req.url);
-  res.writeHead(301, {"Location": "https://192.168.33.101:8443" + req.url});
-  res.end();
-});
-*/
 
 httpserver.listen(8181);
 
