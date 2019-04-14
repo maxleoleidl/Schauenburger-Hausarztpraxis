@@ -4,7 +4,6 @@ var router = express();
 var hbs = require('handlebars');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
-var mongo = require('mongodb');
 var assert = require('assert');
 
 router.use(function(req, res, next) {

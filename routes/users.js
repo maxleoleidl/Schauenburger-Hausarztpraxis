@@ -13,20 +13,18 @@ router.get('/login', function(req, res) {
     res.render('login');
 });
 
+// delete this section on the server
 router.post('/register', function(req, res) {
     var name = req.body.name;
-    var email = req.body.email;
     var username = req.body.username;
     var password = req.body.password;
     var password2 = req.body.password2;
 
     //Validation
-    req.checkBody('name', 'Name is required').notEmpty();
-    req.checkBody('email', 'Email is required').notEmpty();
-    req.checkBody('email', 'Email is not valid').isEmail();
-    req.checkBody('username', 'Username is required').notEmpty();
-    req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+    req.checkBody('name', 'Bitte geben sie einen Namen an.').notEmpty();
+    req.checkBody('username', 'Bitte geben sie einen Benutzernamen an').notEmpty();
+    req.checkBody('password', 'Bitte geben sie ein Passwort ein.').notEmpty();
+    req.checkBody('password2', 'Die von ihnen eingegebenen Passwörter stimmen nicht überein.').equals(req.body.password);
 
     var errors = req.validationErrors();
 
@@ -37,27 +35,21 @@ router.post('/register', function(req, res) {
     } else {
         var newUser = new User({
             name: name,
-            email: email,
             username: username,
             password: password
         });
 
         User.createUser(newUser, function(err, user) {
             if(err) {throw err};
-            console.log(user);
         });
 
-        req.flash('success_msg', 'You are registered and can now login.');
+        req.flash('success_msg', 'Der Benutzer wurde erfolgreich angelegt. Sie können sich jetzt anmelden.');
 
         res.redirect('/users/login');
     };
 });
 
 passport.use(new LocalStrategy(function(username, password, done) {
-    console.log(username);
-    console.log(password);
-    console.log(done);
-
     User.getUserByUsername(username, function(err, user){
         if(err) throw err;
         if(!user) {
@@ -94,7 +86,7 @@ router.post('/login',
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'Sie haben sich erfolgreich ausgeloggt.');
+	req.flash('success_msg', 'Sie haben sich erfolgreich abgemeldet.');
 
 	res.redirect('/users/login');
 });
