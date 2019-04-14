@@ -16,8 +16,13 @@ var mongoose = require('mongoose');
 var fs = require('fs')
 
 // Connect to database
-mongoose.connect('mongodb://127.0.0.1/loginapp')
+mongoose.connect('mongodb://localhost:27017/loginapp')
 var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Connection Successful!");
+});
 
 var render = require('./routes/render');
 var admin = require('./routes/admin');
