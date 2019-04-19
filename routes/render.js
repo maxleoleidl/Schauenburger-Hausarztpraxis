@@ -54,8 +54,6 @@ router.get('/', ensureAuthenticated, function(req, res) {
     var practice_data = masterstatic.practiceTeam;
     var services_data = masterstatic.services;
 
-    console.log(menu_data)
-
     /* Devide the service data */
     for (x in services_data.entries) {
         if (services_data.entries[x].link == 'grundversorgung') {
