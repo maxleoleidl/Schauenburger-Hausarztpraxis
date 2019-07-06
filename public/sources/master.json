@@ -102,6 +102,9 @@
                         },
                         {
                             "entry": "Fachkunde im Strahlenschutz"
+                        },
+                        {
+                            "entry": "psychosomatische Grundversorgung"
                         }
                     ]
                 }
@@ -109,59 +112,46 @@
         },
         {
             "title": "",
-            "name": "Elisabeth Bormuth",
-            "birthyear": "1964",
-            "image": "Elisabeth_Bormuth.jpg",
+            "name": "Nadine Gümpel",
+            "birthyear": "1975",
             "curriculum_vitae": [
                 {
-                    "entry": "Medizinstudium Philipps-Universität, Marburg, Famulatur u.a. in Ghana"
+                    "entry": "Medizinstudium Georg-August Universität Göttingen"
                 },
                 {
-                    "entry": "Praktisches Jahr: Chirurgie, Innere Medizin, Gynäkologie, Rotes Kreuz Krh. Kassel und Klinikum Kassel"
+                    "entry": "Praktisches Jahr: Bremen, Klinikum Bremen Mitte"
                 },
                 {
                     "entry": "Assistenzarztzeiten:",
                     "subentries": [
                         {
-                            "entry": "Orthopädie, Prof. Dr, Blencke, Orthopädische Klinik Hess. Lichtenau"
+                            "entry": "Innere Medizin/Kardiologie, Dr. Obst, Burgfeldkrankenhaus Kassel"
                         },
                         {
-                            "entry": "Chirurgie, Dr. Frings, Kreiskrankenhaus Wolfhagen"
+                            "entry": "Innere Medizin Angiologie/Gastroenterologie, Dr. Bröker/Dr. Sostmann, Diakonissenkrankenhaus Kassel"
                         },
                         {
-                            "entry": "Innere und Geriatrie, Dr. Milerski, DRK Klinik Kaufungen"
-                        },
-                        {
-                            "entry": "Innere, Prof. Dr. Konermann, Marienkrankenhaus Kassel"
-                        },
-                        {
-                            "entry": "Praxis für Allgemeinmedizin Ampf/Gorb, Kaufungen"
+                            "entry": "Innere Medizin, Prof. Inselmann/Prof. Hoffmann, St. Marienkrankenhaus in Ludwigshafen"
                         }
                     ]
                 },
                 {
-                    "entry": "Seit 2017 Anerkennung als Fachärztin für Allgemeinmedizin"
+                    "entry": "Seit 2014 Anerkennung als Fachärztin für innere Medizin"
                 },
                 {
-                    "entry": "Seit Mai 2017 Angestellte Fachärztin in dieser Praxis"
+                    "entry": "Seit 2015 Angestellte hausärztliche Internistin initial im Medikum Kassel, dann im MVZ der orthopädischen Praxisklinik in Baunatal"
+                },
+                {
+                    "entry": "Seit Juni 2019 angestellte Internistin in dieser Praxis "
                 },
                 {
                     "entry": "Zusatzbezeichnungen:",
                     "subentries": [
                         {
-                            "entry": "Palliativmedizin"
+                            "entry": "Psychosomatische Grundversorgung"
                         },
                         {
-                            "entry": "Rettungsdienst"
-                        },
-                        {
-                            "entry": "Fachkunde Strahlenschutz"
-                        },
-                        {
-                            "entry": "Geriatrie"
-                        },
-                        {
-                            "entry": "In Weiterbildung zur Chirotherapie"
+                            "entry": "In Weiterbildung für tiefenpsychologische Psychotherapie"
                         }
                     ]
                 }
@@ -246,11 +236,6 @@
             "name": "Christina Krug",
             "job_description": "Gesundheits- und Krankenpflegerin",
             "image": "Christina_Krug.jpg"
-        },
-        {
-            "name": "Edith Kresin",
-            "job_description": "Aktensicherung",
-            "image": "Edith_Kresin.jpg"
         },
         {
             "name": "Barbara Dziurozs",

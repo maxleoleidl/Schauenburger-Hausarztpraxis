@@ -43,7 +43,9 @@
 
     {{#each team.entries}}
         <h2>{{ title }} {{ name }} geb. {{ birthyear }}</h2>
-        <img class="medical_team" src="/images/medical_team/{{ image }}" alt="Portrait von {{ name }}" />
+        {{#if image}}
+            <img class="medical_team" src="/images/medical_team/{{ image }}" alt="Portrait von {{ name }}" />
+        {{/if}}
         <ul class="medical_team">
             {{#each curriculum_vitae}}
                 <li>{{ entry }}</li>
