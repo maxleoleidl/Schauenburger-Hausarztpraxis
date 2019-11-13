@@ -1,0 +1,60 @@
+{
+    "title": "",
+    "name": "Elisabeth Bormuth",
+    "birthyear": "1964",
+    "image": "Elisabeth_Bormuth.jpg",
+    "curriculum_vitae": [
+        {
+            "entry": "Medizinstudium Philipps-Universität, Marburg, Famulatur u.a. in Ghana"
+        },
+        {
+            "entry": "Praktisches Jahr: Chirurgie, Innere Medizin, Gynäkologie, Rotes Kreuz Krh. Kassel und Klinikum Kassel"
+        },
+        {
+            "entry": "Assistenzarztzeiten:",
+            "subentries": [
+                {
+                    "entry": "Orthopädie, Prof. Dr, Blencke, Orthopädische Klinik Hess. Lichtenau"
+                },
+                {
+                    "entry": "Chirurgie, Dr. Frings, Kreiskrankenhaus Wolfhagen"
+                },
+                {
+                    "entry": "Innere und Geriatrie, Dr. Milerski, DRK Klinik Kaufungen"
+                },
+                {
+                    "entry": "Innere, Prof. Dr. Konermann, Marienkrankenhaus Kassel"
+                },
+                {
+                    "entry": "Praxis für Allgemeinmedizin Ampf/Gorb, Kaufungen"
+                }
+            ]
+        },
+        {
+            "entry": "Seit 2017 Anerkennung als Fachärztin für Allgemeinmedizin"
+        },
+        {
+            "entry": "Seit Mai 2017 Angestellte Fachärztin in dieser Praxis"
+        },
+        {
+            "entry": "Zusatzbezeichnungen:",
+            "subentries": [
+                {
+                    "entry": "Palliativmedizin"
+                },
+                {
+                    "entry": "Rettungsdienst"
+                },
+                {
+                    "entry": "Fachkunde Strahlenschutz"
+                },
+                {
+                    "entry": "Geriatrie"
+                },
+                {
+                    "entry": "In Weiterbildung zur Chirotherapie"
+                }
+            ]
+        }
+    ]
+}

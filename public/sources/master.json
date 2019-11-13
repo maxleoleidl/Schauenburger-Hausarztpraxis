@@ -114,6 +114,7 @@
             "title": "",
             "name": "Nadine Gümpel",
             "birthyear": "1975",
+            "image": "Nadine_Guempel.jpg",
             "curriculum_vitae": [
                 {
                     "entry": "Medizinstudium Georg-August Universität Göttingen"
@@ -236,6 +237,11 @@
             "name": "Christina Krug",
             "job_description": "Gesundheits- und Krankenpflegerin",
             "image": "Christina_Krug.jpg"
+        },
+        {
+            "name": "Geraldine Bock",
+            "job_description": "Auszubildende Medizinische Fachangestellte",
+            "image": "Geraldine_Bock.jpg"
         },
         {
             "name": "Barbara Dziurozs",
